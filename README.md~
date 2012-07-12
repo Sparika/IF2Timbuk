@@ -5,10 +5,6 @@ Copyright (C) 2012 CORRE Kevin
 
 IF2Timbuk is a java tool translating Intermediate Format (IF) to a Timbuk specification. The if file is read by a AntLR parser, thus AntLR is needed to run this program.
 
-Contact
-CORRE Kevin
-<kevin.corre@etu.univ-orleans.fr>
-
 ---------------------------------------
 
 IF is a protocol specification format from the Avispa project. More can be found on this subject on [Avispa project site](http://www.avispa-project.org/)
