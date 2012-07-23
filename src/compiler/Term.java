@@ -14,6 +14,7 @@ import java.util.Vector;
 public class Term {
 	protected Symbole o;
 	protected LinkedList<Term> sons;
+	protected String cond="";
 	/**
 	 * Constructor
 	 * @param o the Symbole a position 0
@@ -424,7 +425,16 @@ public class Term {
 	public Term toLinear(Compiler compiler, String ident){
 		IntermediateTerm it = new IntermediateTerm(ident, compiler.getTypesTable().get("fact"), compiler);
 		this.toLinear(it);
-		if(it.close()){
+		Boolean closeResult;
+		switch(compiler.getLinearTRS()){
+		case 1: cond = it.close1();
+			closeResult = false;
+			break;
+		case 2: closeResult = it.close2();
+			break;
+		default: closeResult = it.close();
+		}
+		if(closeResult){
 			//new Rule l -> it1
 			Term it1 = it.getIt1();
 			LinkedList<Term> lst = new LinkedList<Term>();
@@ -452,5 +462,12 @@ public class Term {
 		if(sons!=null)
 			for(Term t:sons)
 				t.toLinear(it);
+	}
+
+	public void setCond(String cond){
+		this.cond = cond;
+	}
+	public String getCond() {
+		return cond;
 	}
 }

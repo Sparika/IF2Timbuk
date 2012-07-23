@@ -9,17 +9,17 @@
   
   section signature:
   
-	 message > state
-     message > bool
-     message > agent
-     message > protocol_id        
-     message > text         
-     message > symmetric_key 
-     message > public_key    
-     message > hash_func
-     message > nat
-     message > pairT
-     message > nonce
+	 %message > state
+     %message > bool
+     %message > agent
+     %message > protocol_id        
+     %message > text         
+     %message > symmetric_key 
+     %message > public_key    
+     %message > hash_func
+     %message > nat
+     %message > pairT
+     %message > nonce
   
     % failure: failure(X,Y)
     failure     : bool * message -> message
@@ -89,7 +89,9 @@
     % declaration of the variables used in this file:
     PreludeK,PreludeM,PreludeM1,PreludeM2,PreludeM3: message
     PreludeSK: symmetric_key
+    PreludePK: public_key
     X,Y,Z,R,W: message
+    X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20: message
     U: union
     F1, F2, F3 : fact
     P1, P2: pairT
@@ -147,10 +149,12 @@
     %step clear_pair_pid (X,Y,Z,W) :=
     %	pair(pid(Y,Z,W),X) => X
 
-    step gen_crypt (PreludeM1,PreludeM2) :=
-      iknows(PreludeM1).iknows(PreludeM2) => iknows(crypt(PreludeM1,PreludeM2))
-    step gen_scrypt (PreludeM1,PreludeM2) :=
-      iknows(PreludeM1).iknows(PreludeM2) => iknows(scrypt(PreludeM1,PreludeM2))
+    %step gen_crypt (PreludeM1,PreludeM2) :=
+    %  iknows(PreludeM1).iknows(PreludeM2) => iknows(crypt(PreludeM1,PreludeM2))
+    step gen_PKcrypt (PreludePK,PreludeM2) :=
+      iknows(PreludePK).iknows(PreludeM2) => iknows(crypt(PreludePK,PreludeM2))
+    %step gen_scrypt (PreludeM1,PreludeM2) :=
+    %  iknows(PreludeM1).iknows(PreludeM2) => iknows(scrypt(PreludeM1,PreludeM2))
     %step gen_exp (PreludeM1,PreludeM2) :=
     %  iknows(PreludeM1).iknows(PreludeM2) => iknows(exp(PreludeM1,PreludeM2))
     %step gen_xor (PreludeM1,PreludeM2) :=
@@ -160,18 +164,21 @@
   
   	step gen_skey (PreludeSK) :=
   		iknows(PreludeM) =[exists PreludeSK]=> iknows(PreludeSK)
-  		
+  	step gen_pkey (PreludePK) :=
+        iknows(PreludeM) =[exists PreludePK]=> iknows(inv(PreludePK)).iknows(PreludePK)
   
   
     % analyzing rules:
     step ana_pair (PreludeM1,PreludeM2) :=
       iknows(pair(PreludeM1,PreludeM2)) => iknows(PreludeM1).iknows(PreludeM2)
-    step ana_crypt (PreludeK,PreludeM) :=
-      iknows(crypt(PreludeK,PreludeM)).iknows(inv(PreludeK)) => iknows(PreludeM)
+    step ana_PKcrypt (PreludePK,PreludeM) :=
+      iknows(crypt(PreludePK,PreludeM)).iknows(inv(PreludePK)) => iknows(PreludeM)
+    %step ana_crypt (PreludeK,PreludeM) :=
+    %  iknows(crypt(PreludeK,PreludeM)).iknows(inv(PreludeK)) => iknows(PreludeM)
     %step ana_scrypt (PreludeK,PreludeM) :=
     %  iknows(scrypt(PreludeK,PreludeM)).iknows(PreludeK) => iknows(PreludeM)
-    step ana_scryptSymOnly (PreludeSK, PreludeM) :=
-    	iknows(scrypt(PreludeSK,PreludeM)).iknows(PreludeSK) => iknows(PreludeM)
+    %step ana_scryptSymOnly (PreludeSK, PreludeM) :=
+    %	iknows(scrypt(PreludeSK,PreludeM)).iknows(PreludeSK) => iknows(PreludeM)
   
     % generating fresh constants of any type:
     %step generate (PreludeM) :=
@@ -227,9 +234,6 @@ attack_state secrecy_of_X (X,U) :=
   
 
   l(X,l(Y,Z)) = l(Y,l(X,Z))
-  pair(W,pair(X,pair(Y,Z))) = pair(X,pair(Y,Z))
   crypt(X,Y,CID) = CID
   scrypt(X,Y,CID) = CID
-  pair(X,P1) = P1
   pair(X,PID) = PID
-  iknows(X) = iknows(Y)

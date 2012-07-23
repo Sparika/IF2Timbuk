@@ -85,7 +85,6 @@ public class Ops extends Symbole {
 		Symbole and = compiler.getSymbolesTable().get("and");
 		LinkedList<Term> lstR = new LinkedList<Term>();
 		r = new Term(and, lstR);
-		lstR.add(new Term(compiler.getSymbolesTable().get("true"),new LinkedList<Term>()));
 		for(Term t:conj){
 			LinkedList<Term> lstR2 = new LinkedList<Term>();
 			lstR2.add(t);
@@ -94,10 +93,31 @@ public class Ops extends Symbole {
 			lstR = lstR2;
 		}
 		lstR.add(new Term(compiler.getSymbolesTable().get("true"),new LinkedList<Term>()));
+		r = r.getX();
 		try {
-			compiler.addRule(new Rule("check_"+id, l, r));
+			compiler.addRule(new CheckRule("check_"+id, l, r));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String printVariable(Compiler compiler) {
+		//TODO
+		int i=0;
+		String s = (this.getId()+"(").replaceAll("_", "");
+		for(Type t:signature){
+			/*Var v1 = new Var("V"+t.getId()+"c1"+i, t);
+			try {
+				compiler.addVar(v1);
+				compiler.addSymbole(v1);
+			} catch (Exception e) {
+				v1 = compiler.getVarsTable().get(v1.getId());
+			}*/
+			s = s+"_,";
+			i++;
+		}
+		s = s.substring(0, s.length()-1);
+		s = s+")";
+		return s;
 	}
 }

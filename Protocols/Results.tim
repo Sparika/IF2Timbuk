@@ -1,0 +1,251 @@
+Ops
+pos31111:0 pos31110:0 safe:0 pos0111:0 pos0110:0 m2:0 knowledge:0 m1:0 checki:1 pair:2 secret:3 unsafe:0 dummynonce:0 pnulli:0 pid:3 lin:0 null:0 pos311101:0 iknows:1 tag2:0 tag1:0 scnulli:0 contains:2 pos31111011:0 inv:1 nulli:0 true:0 kas:0 pos01111011:0 end:0 pos311:0 failure:2 and:2 scrypt:3 null4:4 null3:3 pos011101:0 null2:2 null1:1 witness:4 null0:0 stateclient:12 secrecy:0 stateserver:12 exp:2 xor:2 pos31:0 wrequest:5 pos3111:0 pos3110:0 u:2 s:0 false:0 serverclientkab:0 n:2 l:2 kis:0 i:0 h:0 b:0 a:0 kia:0 start:0 timNetwork:0 crypt:3 cid:3 apply:2 cnulli:0 nat12:0 pos01111:0 nat10:0 pos01110:0 mi2:0 mi1:0 pos01:0 request:5 clientserverkba:0 nat7:0 checkeq:2 nat6:0 nat4:0 nat3:0 nat2:0 nat1:0 nat0:0 pos011:0 step2:0 step1:0 step0:0 state:1 nat:1 protocolid:1 publickey:1 bool:1 agent:1 pairT:1 nonce:1 union:1 symmetrickey:1 set:1 text:1 hashfunc:1 message:1 fact:1 
+
+Vars
+X20 MGoal X19 X18 X17 X16 SetVar X15 X14 X13 X12 X11 X10 PreludeM Nat PreludeK Pair XDup1 PID F3 F2 F1 CID1001110 PreludeSK CID00 PID1001111011 Tag2 Tag1 Agent P2 Hashfunc P1 A2Goal PreludePKDup1 PID10011101 PreludePK PID1001111 Symmetrickey Tag2Dup2 Tag2Dup1 Bool B1 DummyN2 DummyN1 N2 Protocolid N1 DummyState DummyM2 DummyM1 PID00 M2 M1 SID HDup1 M2Dup1 State A1Goal X9 X8 X7 X6 X5 X4 CID100110 X3 X2 X1 X0 Text Z Y X W Message U S R PreludeM3 Tag1Dup2 PreludeM2 Tag1Dup1 PreludeM1 CID K H KDup1 A Publickey M1Dup2 PID10011 M1Dup1 PID1001 PID100111 
+
+TRS R
+%gen_pair_2
+u(iknows(PreludeM1),u(iknows(PreludeM2),U)) -> 
+u(iknows(pair(PreludeM1,pair(PreludeM2,nat(pnulli)))),u(iknows(PreludeM1),u(iknows(PreludeM2),U)))
+
+%gen_PKcrypt_2
+u(iknows(publickey(PreludePK)),u(iknows(PreludeM2),U)) -> 
+u(iknows(crypt(publickey(PreludePK),PreludeM2,nat(cnulli))),u(iknows(publickey(PreludePK)),u(iknows(PreludeM2),U)))
+
+%gen_skey_2
+u(iknows(PreludeM),U) -> 
+u(iknows(symmetrickey(nat(nulli))),u(iknows(PreludeM),U))
+
+%gen_pkey_2
+u(iknows(PreludeM),U) -> 
+u(iknows(inv(publickey(nat(nulli)))),u(iknows(publickey(nat(nulli))),u(iknows(PreludeM),U)))
+
+%ana_pair_2
+u(iknows(pair(PreludeM1,pair(PreludeM2,nat(PID00)))),U) -> 
+u(iknows(PreludeM1),u(iknows(PreludeM2),u(iknows(pair(PreludeM1,pair(PreludeM2,nat(PID00)))),U)))
+
+%ana_PKcrypt_2
+u(iknows(crypt(publickey(PreludePK),PreludeM,nat(CID00))),u(iknows(inv(publickey(PreludePKDup1))),U)) -> 
+u(iknows(PreludeM),u(iknows(crypt(publickey(PreludePK),PreludeM,nat(CID00))),u(iknows(inv(publickey(PreludePKDup1))),U)))
+if PreludePK <-> PreludePKDup1
+
+%union_2
+u(iknows(F1),u(iknows(F2),U)) -> 
+u(iknows(F2),u(iknows(F1),u(iknows(F1),u(iknows(F2),U))))
+
+%reduc_knowledge_2
+u(iknows(X),U) -> 
+u(knowledge,u(iknows(X),U))
+
+%reduc_secrecy_2
+u(secret(X,Y,Z),U) -> 
+u(secrecy,u(secret(X,Y,Z),U))
+
+%isSafe
+secret(X,Y,Z) -> 
+secret(X,Y,state(checki(Z)))
+
+%safe
+state(checki(end)) -> 
+state(safe)
+
+%check_ia
+state(checki(l(agent(a),X))) -> 
+state(checki(X))
+
+%check_ib
+state(checki(l(agent(b),X))) -> 
+state(checki(X))
+
+%and
+bool(and(bool(true),bool(true))) -> 
+bool(true)
+
+%andf1
+bool(and(bool(false),bool(B1))) -> 
+bool(false)
+
+%andf2
+bool(and(bool(B1),bool(false))) -> 
+bool(false)
+
+%failure_2
+u(iknows(X),u(secret(XDup1,Z,state(safe)),U)) -> 
+u(failure(bool(true),Z),u(iknows(X),u(secret(XDup1,Z,state(safe)),U)))
+if X <-> XDup1
+
+%step_0_2
+u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat0),text(DummyN1),text(N2),text(M2),nat(SID)),u(iknows(start),U)) -> 
+u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat1),text(nonce(n(agent(A),nonce(n(agent(S),nonce(n(nat(SID),nat(SID)))))))),text(N2),text(M2),nat(SID)),u(iknows(pair(text(Tag1),pair(text(M1),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag1),pair(text(M1),nat(pid(nat(SID),nat(step0),nat(pos011101)))))),pair(text(nonce(n(agent(A),nonce(n(agent(S),nonce(n(nat(SID),nat(SID)))))))),nat(pid(nat(SID),nat(step0),nat(pos0111))))),nat(cid(nat(SID),nat(step0),nat(pos0110)))),nat(pid(nat(SID),nat(step0),nat(pos01))))))),u(witness(agent(A),agent(S),protocolid(serverclientkab),pair(text(Tag1),pair(text(M1),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag1),pair(text(M1),nat(pid(nat(SID),nat(step0),nat(pos311101)))))),pair(text(nonce(n(agent(A),nonce(n(agent(S),nonce(n(nat(SID),nat(SID)))))))),nat(pid(nat(SID),nat(step0),nat(pos3111))))),nat(cid(nat(SID),nat(step0),nat(pos3110)))),nat(pid(nat(SID),nat(step0),nat(pos31))))))),u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat0),text(DummyN1),text(N2),text(M2),nat(SID)),u(iknows(start),U)))))
+
+%step_1_2
+u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat1),text(N1),text(DummyN2),text(DummyM2),nat(SID)),u(iknows(pair(text(Tag2Dup1),pair(text(M1Dup1),pair(text(M2),pair(scrypt(symmetrickey(KDup1),pair(apply(hashfunc(HDup1),pair(text(Tag2Dup2),pair(text(M1Dup2),pair(text(M2Dup1),nat(PID1001111011))))),pair(text(N2),nat(PID1001111))),nat(CID1001110)),nat(PID10011)))))),U)) -> 
+u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat2),text(N1),text(N2),text(M2),nat(SID)),u(wrequest(agent(A),agent(S),protocolid(clientserverkba),pair(text(Tag2),pair(text(M1),pair(text(M2),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag2),pair(text(M1),pair(text(M2),nat(pid(nat(SID),nat(step1),nat(pos31111011))))))),pair(text(N2),nat(pid(nat(SID),nat(step1),nat(pos31111))))),nat(cid(nat(SID),nat(step1),nat(pos31110)))),nat(pid(nat(SID),nat(step1),nat(pos311))))))),nat(SID)),u(stateclient(agent(A),agent(S),symmetrickey(K),hashfunc(H),text(M1),text(Tag1),text(Tag2),nat(nat1),text(N1),text(DummyN2),text(DummyM2),nat(SID)),u(iknows(pair(text(Tag2Dup1),pair(text(M1Dup1),pair(text(M2),pair(scrypt(symmetrickey(KDup1),pair(apply(hashfunc(HDup1),pair(text(Tag2Dup2),pair(text(M1Dup2),pair(text(M2Dup1),nat(PID1001111011))))),pair(text(N2),nat(PID1001111))),nat(CID1001110)),nat(PID10011)))))),U))))
+if K <-> KDup1 /\ H <-> HDup1 /\ M1 <-> M1Dup1 /\ M1 <-> M1Dup2 /\ Tag2 <-> Tag2Dup1 /\ Tag2 <-> Tag2Dup2 /\ M2 <-> M2Dup1
+
+%step_2_2
+u(stateserver(agent(S),agent(A),symmetrickey(K),hashfunc(H),text(M2),text(Tag1),text(Tag2),nat(nat0),text(DummyN1),text(DummyM1),text(DummyN2),nat(SID)),u(iknows(pair(text(Tag1Dup1),pair(text(M1),pair(scrypt(symmetrickey(KDup1),pair(apply(hashfunc(HDup1),pair(text(Tag1Dup2),pair(text(M1Dup1),nat(PID10011101)))),pair(text(N1),nat(PID100111))),nat(CID100110)),nat(PID1001))))),U)) -> 
+u(stateserver(agent(S),agent(A),symmetrickey(K),hashfunc(H),text(M2),text(Tag1),text(Tag2),nat(nat1),text(N1),text(M1),text(nonce(n(agent(S),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),nat(SID)),u(iknows(pair(text(Tag2),pair(text(M1),pair(text(M2),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag2),pair(text(M1),pair(text(M2),nat(pid(nat(SID),nat(step2),nat(pos01111011))))))),pair(text(nonce(n(agent(S),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),nat(pid(nat(SID),nat(step2),nat(pos01111))))),nat(cid(nat(SID),nat(step2),nat(pos01110)))),nat(pid(nat(SID),nat(step2),nat(pos011)))))))),u(witness(agent(S),agent(A),protocolid(clientserverkba),pair(text(Tag2),pair(text(M1),pair(text(M2),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag2),pair(text(M1),pair(text(M2),nat(pid(nat(SID),nat(step2),nat(pos31111011))))))),pair(text(nonce(n(agent(S),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),nat(pid(nat(SID),nat(step2),nat(pos31111))))),nat(cid(nat(SID),nat(step2),nat(pos31110)))),nat(pid(nat(SID),nat(step2),nat(pos311)))))))),u(wrequest(agent(S),agent(A),protocolid(serverclientkab),pair(text(Tag1),pair(text(M1),pair(scrypt(symmetrickey(K),pair(apply(hashfunc(H),pair(text(Tag1),pair(text(M1),nat(pid(nat(SID),nat(step2),nat(pos311101)))))),pair(text(N1),nat(pid(nat(SID),nat(step2),nat(pos3111))))),nat(cid(nat(SID),nat(step2),nat(pos3110)))),nat(pid(nat(SID),nat(step2),nat(pos31)))))),nat(SID)),u(stateserver(agent(S),agent(A),symmetrickey(K),hashfunc(H),text(M2),text(Tag1),text(Tag2),nat(nat0),text(DummyN1),text(DummyM1),text(DummyN2),nat(SID)),u(iknows(pair(text(Tag1Dup1),pair(text(M1),pair(scrypt(symmetrickey(KDup1),pair(apply(hashfunc(HDup1),pair(text(Tag1Dup2),pair(text(M1Dup1),nat(PID10011101)))),pair(text(N1),nat(PID100111))),nat(CID100110)),nat(PID1001))))),U))))))
+if K <-> KDup1 /\ H <-> HDup1 /\ Tag1 <-> Tag1Dup1 /\ Tag1 <-> Tag1Dup2 /\ M1 <-> M1Dup1
+
+%super type declaration
+
+%check_text
+bool(checkeq(text(X),text(Y))) ->
+bool(checkeq(X,Y))
+
+Automaton AInit
+States  qkia q128 qs q126 q124 q122 q120 q58 qi q56 qh q54 q52 q50 qa q118 q116 q114 qmi1 q112 qkas q110 q48 q46 q44 q42 q40 q108 q106 q104 q102 qnat7 q100 qnat6 q38 q162 qnat4 q36 qnat3 q160 q34 q98 qnat0 q32 q96 q30 q94 q92 q90 qm2 qm1 qnet q158 q156 qnat12 q154 qnat10 q28 q152 q26 q150 q24 q88 q22 q86 q20 q84 q82 qfact q80 q8 qtag2 q6 qtag1 q148 q4 q146 q144 q18 q142 q16 q140 q14 q78 q12 q76 q10 qdummynonce q74 q72 q70 qstart qknowledge q138 q136 q134 q132 q130 q68 q66 qkis q64 q62 q60
+Final States  qnet
+Transitions
+start -> qstart
+qstart -> q4
+iknows(q4) -> qfact
+a -> qa
+agent(qa) -> q6
+iknows(q6) -> qfact
+s -> qs
+agent(qs) -> q8
+iknows(q8) -> qfact
+h -> qh
+hashfunc(qh) -> q10
+iknows(q10) -> qfact
+kia -> qkia
+symmetrickey(qkia) -> q12
+iknows(q12) -> qfact
+kis -> qkis
+symmetrickey(qkis) -> q14
+iknows(q14) -> qfact
+mi1 -> qmi1
+text(qmi1) -> q16
+iknows(q16) -> qfact
+i -> qi
+agent(qi) -> q18
+iknows(q18) -> qfact
+agent(qa) -> q20
+agent(qs) -> q22
+kas -> qkas
+symmetrickey(qkas) -> q24
+hashfunc(qh) -> q26
+m1 -> qm1
+text(qm1) -> q28
+tag1 -> qtag1
+text(qtag1) -> q30
+tag2 -> qtag2
+text(qtag2) -> q32
+nat0 -> qnat0
+nat(qnat0) -> q34
+dummynonce -> qdummynonce
+text(qdummynonce) -> q36
+text(qdummynonce) -> q38
+text(qdummynonce) -> q40
+nat3 -> qnat3
+nat(qnat3) -> q42
+stateclient(q20,q22,q24,q26,q28,q30,q32,q34,q36,q38,q40,q42) -> qfact
+agent(qs) -> q44
+agent(qa) -> q46
+symmetrickey(qkas) -> q48
+hashfunc(qh) -> q50
+m2 -> qm2
+text(qm2) -> q52
+text(qtag1) -> q54
+text(qtag2) -> q56
+nat(qnat0) -> q58
+text(qdummynonce) -> q60
+text(qdummynonce) -> q62
+text(qdummynonce) -> q64
+nat4 -> qnat4
+nat(qnat4) -> q66
+stateserver(q44,q46,q48,q50,q52,q54,q56,q58,q60,q62,q64,q66) -> qfact
+agent(qa) -> q68
+agent(qs) -> q70
+symmetrickey(qkas) -> q72
+hashfunc(qh) -> q74
+text(qm1) -> q76
+text(qtag1) -> q78
+text(qtag2) -> q80
+nat(qnat0) -> q82
+text(qdummynonce) -> q84
+text(qdummynonce) -> q86
+text(qdummynonce) -> q88
+nat6 -> qnat6
+nat(qnat6) -> q90
+stateclient(q68,q70,q72,q74,q76,q78,q80,q82,q84,q86,q88,q90) -> qfact
+agent(qs) -> q92
+agent(qa) -> q94
+symmetrickey(qkas) -> q96
+hashfunc(qh) -> q98
+text(qm2) -> q100
+text(qtag1) -> q102
+text(qtag2) -> q104
+nat(qnat0) -> q106
+text(qdummynonce) -> q108
+text(qdummynonce) -> q110
+text(qdummynonce) -> q112
+nat7 -> qnat7
+nat(qnat7) -> q114
+stateserver(q92,q94,q96,q98,q100,q102,q104,q106,q108,q110,q112,q114) -> qfact
+agent(qs) -> q116
+agent(qi) -> q118
+symmetrickey(qkis) -> q120
+hashfunc(qh) -> q122
+text(qm2) -> q124
+text(qtag1) -> q126
+text(qtag2) -> q128
+nat(qnat0) -> q130
+text(qdummynonce) -> q132
+text(qdummynonce) -> q134
+text(qdummynonce) -> q136
+nat10 -> qnat10
+nat(qnat10) -> q138
+stateserver(q116,q118,q120,q122,q124,q126,q128,q130,q132,q134,q136,q138) -> qfact
+agent(qa) -> q140
+agent(qi) -> q142
+symmetrickey(qkia) -> q144
+hashfunc(qh) -> q146
+text(qm1) -> q148
+text(qtag1) -> q150
+text(qtag2) -> q152
+nat(qnat0) -> q154
+text(qdummynonce) -> q156
+text(qdummynonce) -> q158
+text(qdummynonce) -> q160
+nat12 -> qnat12
+nat(qnat12) -> q162
+stateclient(q140,q142,q144,q146,q148,q150,q152,q154,q156,q158,q160,q162) -> qfact
+knowledge -> qknowledge
+timNetwork -> qfact
+u(qfact,qfact) -> qnet
+
+
+
+Patterns
+%secrecy_of_X
+u(failure(bool(true),X),U)
+
+Equations E
+Rules
+
+%3
+pair(X,nat(PID)) = 
+nat(PID)
+
+%2
+scrypt(X,Y,nat(CID)) = 
+nat(CID)
+
+%1
+crypt(X,Y,nat(CID)) = 
+nat(CID)
+
+%0
+l(X,l(Y,Z)) = 
+l(Y,l(X,Z))
+
+%super type equation
+
+state(checki(Z)) = Z
+checkeq(X,Y) = checkeq(Y,X)
+[u(X,Y)] => [X=timNetwork Y=timNetwork]
+

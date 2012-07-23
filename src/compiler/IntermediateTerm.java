@@ -88,34 +88,22 @@ public class IntermediateTerm {
 				it2.getSons().add(t);
 				((Ops) it.getO()).getSignature().add(ve.getV().getType());
 			}
-			//Add equation o(_,...,_) = lin
-			Term leftEq = new Term(it.getO(),new LinkedList<Term>());
-			Term leftRu = new Term(it.getO(),new LinkedList<Term>());
-			Term underscore = new Term(new Underscore(),new LinkedList<Term>());
-			for(int i=0; i<it.getO().getSize(); i++){
-				Var v = new Var("X"+i,new Untyped(""));
-				try {
-					compiler.addVar(v);
-					compiler.addSymbole(v);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				leftRu.getSons().add(new Term(v,new LinkedList<Term>()));
-				leftEq.getSons().add(underscore);
-			}
-			Term right = new Term(compiler.getSymbolesTable().get("lin"),new LinkedList<Term>());
-			try {
-				compiler.addRule(new Rule(it.getO().toString()+"toLin",leftRu,right));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			try {
-				compiler.addEquation(new Equation(it.getO().toString()+"toLin",leftEq,right));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			return true;
 		}
+	}
+	
+	public String close1() {
+		String cond = "";
+		for(VarEnum ve:varL){
+			for(int i=1; i<=ve.getN(); i++){
+				cond=cond+ve.getV().toString()+" <-> "+ve.getV().toString()+"Dup"+i+" /\\ ";
+			}
+		}
+		if(cond.length()>3)
+			cond = cond.substring(0,cond.length()-4);
+
+		compiler.getSymbolesTable().remove(it.getO().getId());
+		return cond;
 	}
 		
 	public Boolean close2() {
@@ -126,7 +114,7 @@ public class IntermediateTerm {
 		}
 		//Else complete construction of the new term
 		else{
-			//Extract ducplicated Vars from checkeq of it1
+			//Extract duplicated Vars from checkeq of it1
 			LinkedList<Term> varDupList = new LinkedList<Term>();
 			for(Term tV:it.getSons()){
 				varDupList.add(tV.getY());
@@ -207,5 +195,4 @@ public class IntermediateTerm {
 
 	public Term getIt1() {return it;}
 	public Term getIt2() {return it2;}
-	
 }

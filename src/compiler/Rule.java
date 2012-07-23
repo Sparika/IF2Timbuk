@@ -45,6 +45,7 @@ public class Rule {
 		this.l = l;
 		this.r = r;
 		linear = null;
+		cond = l.getCond();
 	}
 
 	public String getId() {
@@ -74,10 +75,10 @@ public class Rule {
 			s+=r.print()+"\n";
 			
 			/**
-			 * Commented code for the equation version
+			 * Code for the equation version
 			 */
-			//if(!cond.equals(""))
-			//	s+="if "+cond+"\n";
+			if(cond.length()>0)
+				s+="if "+cond+"\n";
 			
 			
 		//return "%"+id+"\n"+l.toString()+" -> "+r.toString()+"\n";

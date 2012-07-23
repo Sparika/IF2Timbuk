@@ -1,0 +1,249 @@
+Ops
+safe:0 knowledge:0 ki:0 kb:0 ka:0 checki:1 pair:2 secret:3 unsafe:0 dummynonce:0 pnulli:0 pid:3 lin:0 null:0 iknows:1 scnulli:0 contains:2 pos0:0 inv:1 set78:0 nulli:0 set77:0 set76:0 set74:0 set70:0 true:0 alicebobnb:0 end:0 set62:0 failure:2 bobalicena:0 statealice:9 and:2 scrypt:3 null4:4 null3:3 null2:2 null1:1 witness:4 null0:0 secrecy:0 exp:2 xor:2 wrequest:5 u:2 false:0 n:2 l:2 i:0 b:0 a:0 start:0 timNetwork:0 crypt:3 cid:3 apply:2 cnulli:0 nb:0 na:0 nat10:0 pos01:0 request:5 checkeq:2 nat6:0 nat5:0 nat4:0 nat3:0 nat2:0 nat1:0 nat0:0 pos011:0 step2:0 step1:0 step0:0 statebob:9 state:1 nat:1 protocolid:1 publickey:1 bool:1 agent:1 pairT:1 nonce:1 union:1 symmetrickey:1 set:1 text:1 hashfunc:1 message:1 fact:1 
+
+Vars
+DummySet38 X20 MGoal X19 X18 X17 X16 SetVar X15 X14 X13 X12 X11 X10 PreludeM Nat ASGoal PreludeK Pair XDup1 DummySet18 PID SID2 SID1 F3 F2 F1 PreludeSK CID00 BDup1 Agent Set38 P2 Hashfunc P1 NbDup1 DummyNb DummyNa Nb Na A2Goal Symmetrickey CID100 Bool B1 Set18 Protocolid PreludeKDup1 DummyState PID00 KbDup1 ADup1 SID Kb Ka State NaDup1 A1Goal X9 X8 X7 X6 X5 X4 X3 X2 X1 X0 Text Z Y X W Message U R PreludeM3 PreludeM2 PreludeM1 CID B A Publickey KaDup1 PID10011 PID1001 
+
+TRS R
+%gen_pair_2
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)) -> 
+u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(pnulli)))))),u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)))
+
+%gen_crypt_2
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)) -> 
+u(iknows(message(crypt(message(PreludeM1),message(PreludeM2),nat(cnulli)))),u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)))
+
+%ana_pair_2
+u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(PID00)))))),U) -> 
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(PID00)))))),U)))
+
+%ana_crypt_2
+u(iknows(message(crypt(message(PreludeK),message(PreludeM),nat(CID00)))),u(iknows(message(inv(message(PreludeKDup1)))),U)) -> 
+u(iknows(message(PreludeM)),u(iknows(message(crypt(message(PreludeK),message(PreludeM),nat(CID00)))),u(iknows(message(inv(message(PreludeKDup1)))),U)))
+if PreludeK <-> PreludeKDup1
+
+%union_2
+u(iknows(F1),u(iknows(F2),U)) -> 
+u(iknows(F2),u(iknows(F1),u(iknows(F1),u(iknows(F2),U))))
+
+%reduc_knowledge_2
+u(iknows(message(X)),U) -> 
+u(knowledge,u(iknows(message(X)),U))
+
+%reduc_secrecy_2
+u(secret(message(X),message(Y),message(Z)),U) -> 
+u(secrecy,u(secret(message(X),message(Y),message(Z)),U))
+
+%isSafe
+secret(message(X),message(Y),message(Z)) -> 
+secret(message(X),message(Y),state(checki(message(Z))))
+
+%safe
+state(checki(message(end))) -> 
+state(safe)
+
+%check_ia
+state(checki(message(l(agent(a),message(X))))) -> 
+state(checki(message(X)))
+
+%check_ib
+state(checki(message(l(agent(b),message(X))))) -> 
+state(checki(message(X)))
+
+%failure_2
+u(iknows(message(X)),u(secret(message(XDup1),message(Z),state(safe)),U)) -> 
+u(message(failure(bool(true),message(Z))),u(iknows(message(X)),u(secret(message(XDup1),message(Z),state(safe)),U)))
+if X <-> XDup1
+
+%step_0_2
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat0),text(DummyNa),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(start)),U)) -> 
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(crypt(publickey(Kb),pairT(pair(text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),pairT(pair(agent(A),nat(pid(nat(SID),nat(step0),nat(pos01))))))),nat(cid(nat(SID),nat(step0),nat(pos0)))))),u(witness(agent(A),agent(B),protocolid(bobalicena),text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID))))))))),u(contains(agent(A),set(DummySet18)),u(contains(agent(B),set(DummySet18)),u(secret(text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),protocolid(na),message(l(agent(B),message(l(agent(A),message(end)))))),u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat0),text(DummyNa),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(start)),U))))))))
+
+%step_1_2
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(Na),text(DummyNb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(KaDup1),pairT(pair(text(NaDup1),pairT(pair(text(Nb),pairT(pair(agent(BDup1),nat(PID10011))))))),nat(CID100)))),U)) -> 
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat4),text(Na),text(Nb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(Kb),text(Nb),nat(cid(nat(SID),nat(step1),nat(pos0)))))),u(request(agent(A),agent(B),protocolid(alicebobnb),text(Nb),nat(SID)),u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(Na),text(DummyNb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(KaDup1),pairT(pair(text(NaDup1),pairT(pair(text(Nb),pairT(pair(agent(BDup1),nat(PID10011))))))),nat(CID100)))),U)))))
+if B <-> BDup1 /\ Ka <-> KaDup1 /\ Na <-> NaDup1
+
+%step_2_2
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat1),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),pairT(pair(text(Na),pairT(pair(agent(ADup1),nat(PID1001))))),nat(CID100)))),U)) -> 
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(Ka),pairT(pair(text(Na),pairT(pair(text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),pairT(pair(agent(B),nat(pid(nat(SID),nat(step2),nat(pos011))))))))),nat(cid(nat(SID),nat(step2),nat(pos0)))))),u(witness(agent(B),agent(A),protocolid(alicebobnb),text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID))))))))),u(contains(agent(A),set(DummySet38)),u(contains(agent(B),set(DummySet38)),u(secret(text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),protocolid(nb),message(l(agent(B),message(l(agent(A),message(end)))))),u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat1),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),pairT(pair(text(Na),pairT(pair(agent(ADup1),nat(PID1001))))),nat(CID100)))),U))))))))
+if A <-> ADup1 /\ Kb <-> KbDup1
+
+%step_3_2
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(Nb),set(Set38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),text(NbDup1),nat(CID100)))),U)) -> 
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat5),text(Na),text(Nb),set(Set38),nat(SID)),u(request(agent(B),agent(A),protocolid(bobalicena),text(Na),nat(SID)),u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(Nb),set(Set38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),text(NbDup1),nat(CID100)))),U))))
+if Kb <-> KbDup1 /\ Nb <-> NbDup1
+
+%super type declaration
+state(X) -> message(X)
+
+bool(X) -> message(X)
+
+agent(X) -> message(X)
+
+protocolid(X) -> message(X)
+
+text(X) -> message(X)
+
+symmetrickey(X) -> message(X)
+
+publickey(X) -> message(X)
+
+hashfunc(X) -> message(X)
+
+nat(X) -> message(X)
+
+pairT(X) -> message(X)
+
+nonce(X) -> message(X)
+
+
+%check_text
+bool(checkeq(text(X),text(Y))) ->
+bool(checkeq(X,Y))
+
+Automaton AInit
+States  qknowledge qi q28 qb qnat10 qa q58 q26 q88 q56 q24 q86 q54 q22 q84 q52 q20 qfact q82 q50 q80 qset78 qset74 q8 qset70 q18 q6 q17 q48 q16 q4 q78 q46 q14 qnet q76 q44 q12 q74 q10 q42 q72 q40 q70 qdummynonce qnat6 qnat4 qnat3 qnat1 qnat0 qset62 q38 q68 q36 q66 q34 qstart q64 q32 q62 q30 q92 q60 q90 qki qkb qka
+Final States  qnet
+Transitions
+start -> qstart
+message(qstart) -> q4
+iknows(q4) -> qfact
+a -> qa
+agent(qa) -> q6
+iknows(q6) -> qfact
+b -> qb
+agent(qb) -> q8
+iknows(q8) -> qfact
+ka -> qka
+publickey(qka) -> q10
+iknows(q10) -> qfact
+kb -> qkb
+publickey(qkb) -> q12
+iknows(q12) -> qfact
+ki -> qki
+publickey(qki) -> q14
+iknows(q14) -> qfact
+publickey(qki) -> q16
+inv(q16) -> q17
+message(q17) -> q18
+iknows(q18) -> qfact
+i -> qi
+agent(qi) -> q20
+iknows(q20) -> qfact
+agent(qa) -> q22
+agent(qb) -> q24
+publickey(qka) -> q26
+publickey(qkb) -> q28
+nat0 -> qnat0
+nat(qnat0) -> q30
+dummynonce -> qdummynonce
+text(qdummynonce) -> q32
+text(qdummynonce) -> q34
+set62 -> qset62
+set(qset62) -> q36
+nat3 -> qnat3
+nat(qnat3) -> q38
+statealice(q22,q24,q26,q28,q30,q32,q34,q36,q38) -> qfact
+agent(qb) -> q40
+agent(qa) -> q42
+publickey(qka) -> q44
+publickey(qkb) -> q46
+nat1 -> qnat1
+nat(qnat1) -> q48
+text(qdummynonce) -> q50
+text(qdummynonce) -> q52
+set70 -> qset70
+set(qset70) -> q54
+nat4 -> qnat4
+nat(qnat4) -> q56
+statebob(q40,q42,q44,q46,q48,q50,q52,q54,q56) -> qfact
+agent(qa) -> q58
+agent(qi) -> q60
+publickey(qka) -> q62
+publickey(qki) -> q64
+nat(qnat0) -> q66
+text(qdummynonce) -> q68
+text(qdummynonce) -> q70
+set74 -> qset74
+set(qset74) -> q72
+nat6 -> qnat6
+nat(qnat6) -> q74
+statealice(q58,q60,q62,q64,q66,q68,q70,q72,q74) -> qfact
+agent(qb) -> q76
+agent(qi) -> q78
+publickey(qki) -> q80
+publickey(qkb) -> q82
+nat(qnat1) -> q84
+text(qdummynonce) -> q86
+text(qdummynonce) -> q88
+set78 -> qset78
+set(qset78) -> q90
+nat10 -> qnat10
+nat(qnat10) -> q92
+statebob(q76,q78,q80,q82,q84,q86,q88,q90,q92) -> qfact
+knowledge -> qknowledge
+timNetwork -> qfact
+u(qfact,qfact) -> qnet
+
+
+
+Patterns
+%secrecy_of_X
+u(message(failure(bool(true),message(X))),U)
+
+Equations E
+Rules
+
+%3
+pairT(pair(message(X),nat(PID))) = 
+nat(PID)
+
+%2
+message(scrypt(message(X),message(Y),nat(CID))) = 
+nat(CID)
+
+%1
+message(crypt(message(X),message(Y),nat(CID))) = 
+nat(CID)
+
+%super type equation
+state(X) = message(X)
+
+bool(X) = message(X)
+
+agent(X) = message(X)
+
+protocolid(X) = message(X)
+
+text(X) = message(X)
+
+symmetrickey(X) = message(X)
+
+publickey(X) = message(X)
+
+hashfunc(X) = message(X)
+
+nat(X) = message(X)
+
+pairT(X) = message(X)
+
+nonce(X) = message(X)
+
+
+state(checki(message(Z))) = message(Z)
+checkeq(X,Y) = checkeq(Y,X)
+[iknows(X)] => [X=knowledge]
+u(_,_) = timNetwork
+pair(X,Y) = Y
+crypt(X,Y,Z) = Z
+
+secret(_,_,_) = timNetwork
+iknows(_) = timNetwork
+contains(_,_) = timNetwork
+statealice(_,_,_,_,_,_,_,_,_) = timNetwork
+witness(_,_,_,_) = timNetwork
+wrequest(_,_,_,_,_) = timNetwork
+request(_,_,_,_,_) = timNetwork
+statebob(_,_,_,_,_,_,_,_,_) = timNetwork
+

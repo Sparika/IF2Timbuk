@@ -1,0 +1,2211 @@
+Ops
+step1lin:14 safe:0 knowledge:0 ki:0 kb:0 ka:0 checki:1 pair:2 secret:3 unsafe:0 dummynonce:0 pnulli:0 pid:3 lin:0 step2lin:13 null:0 iknows:1 scnulli:0 contains:2 pos0:0 inv:1 set78:0 nulli:0 set77:0 set76:0 set74:0 set70:0 true:0 alicebobnb:0 end:0 set62:0 failure:2 bobalicena:0 step3lin:11 statealice:9 and:2 scrypt:3 null4:4 null3:3 null2:2 null1:1 witness:4 null0:0 secrecy:0 exp:2 xor:2 wrequest:5 u:2 false:0 n:2 l:2 anacryptlin:4 i:0 anascryptSymOnlylin:4 b:0 a:0 start:0 crypt:3 cid:3 apply:2 cnulli:0 nb:0 na:0 nat10:0 pos01:0 request:5 checkeq:2 nat6:0 nat5:0 nat4:0 nat3:0 nat2:0 nat1:0 nat0:0 pos011:0 step2:0 step1:0 step0:0 failurelin:3 statebob:9 state:1 nat:1 protocolid:1 publickey:1 bool:1 agent:1 pairT:1 nonce:1 union:1 symmetrickey:1 set:1 text:1 hashfunc:1 message:1 fact:1 
+
+Vars
+DummySet38 Vprotocolidc22 Vprotocolidc21 MGoal Vtextc18 Vtextc17 Vtextc16 Vtextc15 Vtextc12 Vtextc11 SetVar Vnatc113 X13 Vprotocolidc12 Vnatc112 X12 Vnatc111 Vprotocolidc11 X11 Vnatc110 X10 PreludeM Nat ASGoal PreludeK Pair XDup1 DummySet18 PID SID2 SID1 F3 F2 F1 PreludeSKDup1 Vtextc111 Vtextc110 PreludeSK CID00 Vpublickeyc26 Vpublickeyc25 Vpublickeyc24 BDup1 Agent Vpublickeyc23 Vpublickeyc22 Set38 P2 Hashfunc P1 Vsymmetrickeyc21 NbDup1 DummyNb DummyNa Vagentc24 Vagentc23 Vagentc22 Vagentc21 Vagentc20 Nb Na Vpublickeyc16 Vpublickeyc15 A2Goal Vpublickeyc14 Vpublickeyc13 Vpublickeyc12 Vsymmetrickeyc11 Vagentc14 Vagentc13 Vagentc12 Vagentc11 Symmetrickey Vagentc10 CID100 Bool B1 Set18 Vnatc29 Vnatc28 Protocolid Vnatc24 Vnatc23 Vstatec22 Vnatc22 Vnatc20 Vnatc213 Vnatc212 Vnatc211 Vnatc210 Vmessagec23 PreludeKDup1 Vmessagec22 Vmessagec21 DummyState Vmessagec20 PID00 Vnatc19 Vnatc18 KbDup1 ADup1 Vnatc14 Vnatc13 Vstatec12 Vnatc12 SID Vnatc10 Kb Ka Vmessagec13 State Vmessagec12 NaDup1 Vmessagec11 Vmessagec10 Vtextc211 Vsetc29 Vtextc210 Vsetc28 Vsetc27 A1Goal X9 X8 X7 X6 Vsetc21 X5 X4 X3 X2 Vunionc21 X1 X0 Text Z Y X W Message U R PreludeM3 PreludeM2 Vsetc19 PreludeM1 Vsetc18 CID Vsetc17 Vboolc22 Vboolc21 Vsetc11 Vboolc20 B Vunionc11 A Publickey Vboolc12 Vboolc11 Vboolc10 KaDup1 Vtextc28 Vtextc27 Vtextc26 Vtextc25 Vtextc22 PID10011 Vtextc21 PID1001 
+
+TRS R
+%gen_pair_2
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)) -> 
+u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(pnulli)))))),u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)))
+
+%gen_crypt_2
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)) -> 
+u(iknows(message(crypt(message(PreludeM1),message(PreludeM2),nat(cnulli)))),u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)))
+
+%gen_scrypt_2
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)) -> 
+u(iknows(message(scrypt(message(PreludeM1),message(PreludeM2),nat(scnulli)))),u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),U)))
+
+%gen_skey_2
+u(iknows(message(PreludeM)),U) -> 
+u(iknows(symmetrickey(nat(nulli))),u(iknows(message(PreludeM)),U))
+
+%ana_pair_2
+u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(PID00)))))),U) -> 
+u(iknows(message(PreludeM1)),u(iknows(message(PreludeM2)),u(iknows(pairT(pair(message(PreludeM1),pairT(pair(message(PreludeM2),nat(PID00)))))),U)))
+
+%anacryptlintoLin
+anacryptlin(X0,X1,X2,X3) -> 
+lin
+
+%ana_crypt_1
+u(iknows(message(crypt(message(PreludeK),message(PreludeM),nat(CID00)))),u(iknows(message(inv(message(PreludeKDup1)))),U)) -> 
+u(anacryptlin(bool(checkeq(message(PreludeK),message(PreludeKDup1))),message(PreludeK),message(PreludeM),nat(CID00)),u(iknows(message(crypt(message(PreludeK),message(PreludeM),nat(CID00)))),u(iknows(message(inv(message(PreludeKDup1)))),U)))
+
+%ana_crypt_2
+u(anacryptlin(bool(true),message(PreludeK),message(PreludeM),nat(CID00)),U) -> 
+u(iknows(message(PreludeM)),u(anacryptlin(bool(true),message(PreludeK),message(PreludeM),nat(CID00)),U))
+
+%anascryptSymOnlylintoLin
+anascryptSymOnlylin(X0,X1,X2,X3) -> 
+lin
+
+%ana_scryptSymOnly_1
+u(iknows(message(scrypt(symmetrickey(PreludeSK),message(PreludeM),nat(CID00)))),u(iknows(symmetrickey(PreludeSKDup1)),U)) -> 
+u(anascryptSymOnlylin(bool(checkeq(symmetrickey(PreludeSK),symmetrickey(PreludeSKDup1))),symmetrickey(PreludeSK),message(PreludeM),nat(CID00)),u(iknows(message(scrypt(symmetrickey(PreludeSK),message(PreludeM),nat(CID00)))),u(iknows(symmetrickey(PreludeSKDup1)),U)))
+
+%ana_scryptSymOnly_2
+u(anascryptSymOnlylin(bool(true),symmetrickey(PreludeSK),message(PreludeM),nat(CID00)),U) -> 
+u(iknows(message(PreludeM)),u(anascryptSymOnlylin(bool(true),symmetrickey(PreludeSK),message(PreludeM),nat(CID00)),U))
+
+%union_2
+u(iknows(F1),u(iknows(F2),U)) -> 
+u(iknows(F2),u(iknows(F1),u(iknows(F1),u(iknows(F2),U))))
+
+%reduc_knowledge_2
+u(iknows(message(X)),U) -> 
+u(knowledge,u(iknows(message(X)),U))
+
+%reduc_secrecy_2
+u(secret(message(X),message(Y),message(Z)),U) -> 
+u(secrecy,u(secret(message(X),message(Y),message(Z)),U))
+
+%isSafe
+secret(message(X),message(Y),message(Z)) -> 
+secret(message(X),message(Y),state(checki(message(Z))))
+
+%safe
+state(checki(message(end))) -> 
+state(safe)
+
+%check_ia
+state(checki(message(l(agent(a),message(X))))) -> 
+state(checki(message(X)))
+
+%check_ib
+state(checki(message(l(agent(b),message(X))))) -> 
+state(checki(message(X)))
+
+%and
+bool(and(bool(true),bool(true))) -> 
+bool(true)
+
+%andf1
+bool(and(bool(false),bool(B1))) -> 
+bool(false)
+
+%andf2
+bool(and(bool(B1),bool(false))) -> 
+bool(false)
+
+%failurelintoLin
+failurelin(X0,X1,X2) -> 
+lin
+
+%failure_1
+u(iknows(message(X)),u(secret(message(XDup1),message(Z),state(safe)),U)) -> 
+u(failurelin(bool(checkeq(message(X),message(XDup1))),message(X),message(Z)),u(iknows(message(X)),u(secret(message(XDup1),message(Z),state(safe)),U)))
+
+%failure_2
+u(failurelin(bool(true),message(X),message(Z)),U) -> 
+u(message(failure(bool(true),message(Z))),u(failurelin(bool(true),message(X),message(Z)),U))
+
+%step_0_2
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat0),text(DummyNa),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(start)),U)) -> 
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(crypt(publickey(Kb),pairT(pair(text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),pairT(pair(agent(A),nat(pid(nat(SID),nat(step0),nat(pos01))))))),nat(cid(nat(SID),nat(step0),nat(pos0)))))),u(witness(agent(A),agent(B),protocolid(bobalicena),text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID))))))))),u(contains(agent(A),set(DummySet18)),u(contains(agent(B),set(DummySet18)),u(secret(text(nonce(n(agent(A),nonce(n(agent(B),nonce(n(nat(SID),nat(SID)))))))),protocolid(na),message(l(agent(B),message(l(agent(A),message(end)))))),u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat0),text(DummyNa),text(Nb),set(DummySet18),nat(SID)),u(iknows(message(start)),U))))))))
+
+%step1lintoLin
+step1lin(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13) -> 
+lin
+
+%step_1_1
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(Na),text(DummyNb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(KaDup1),pairT(pair(text(NaDup1),pairT(pair(text(Nb),pairT(pair(agent(BDup1),nat(PID10011))))))),nat(CID100)))),U)) -> 
+u(step1lin(bool(checkeq(publickey(Ka),publickey(KaDup1))),bool(checkeq(text(Na),text(NaDup1))),bool(checkeq(agent(B),agent(BDup1))),agent(A),agent(B),publickey(Ka),publickey(Kb),text(Na),text(DummyNb),set(Set18),nat(SID),text(Nb),nat(PID10011),nat(CID100)),u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat2),text(Na),text(DummyNb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(KaDup1),pairT(pair(text(NaDup1),pairT(pair(text(Nb),pairT(pair(agent(BDup1),nat(PID10011))))))),nat(CID100)))),U)))
+
+%step_1_2
+u(step1lin(bool(true),bool(true),bool(true),agent(A),agent(B),publickey(Ka),publickey(Kb),text(Na),text(DummyNb),set(Set18),nat(SID),text(Nb),nat(PID10011),nat(CID100)),U) -> 
+u(statealice(agent(A),agent(B),publickey(Ka),publickey(Kb),nat(nat4),text(Na),text(Nb),set(Set18),nat(SID)),u(iknows(message(crypt(publickey(Kb),text(Nb),nat(cid(nat(SID),nat(step1),nat(pos0)))))),u(request(agent(A),agent(B),protocolid(alicebobnb),text(Nb),nat(SID)),u(step1lin(bool(true),bool(true),bool(true),agent(A),agent(B),publickey(Ka),publickey(Kb),text(Na),text(DummyNb),set(Set18),nat(SID),text(Nb),nat(PID10011),nat(CID100)),U))))
+
+%step2lintoLin
+step2lin(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12) -> 
+lin
+
+%step_2_1
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat1),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),pairT(pair(text(Na),pairT(pair(agent(ADup1),nat(PID1001))))),nat(CID100)))),U)) -> 
+u(step2lin(bool(checkeq(publickey(Kb),publickey(KbDup1))),bool(checkeq(agent(A),agent(ADup1))),agent(B),agent(A),publickey(Ka),publickey(Kb),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID),text(Na),nat(PID1001),nat(CID100)),u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat1),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),pairT(pair(text(Na),pairT(pair(agent(ADup1),nat(PID1001))))),nat(CID100)))),U)))
+
+%step_2_2
+u(step2lin(bool(true),bool(true),agent(B),agent(A),publickey(Ka),publickey(Kb),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID),text(Na),nat(PID1001),nat(CID100)),U) -> 
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),set(DummySet38),nat(SID)),u(iknows(message(crypt(publickey(Ka),pairT(pair(text(Na),pairT(pair(text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),pairT(pair(agent(B),nat(pid(nat(SID),nat(step2),nat(pos011))))))))),nat(cid(nat(SID),nat(step2),nat(pos0)))))),u(witness(agent(B),agent(A),protocolid(alicebobnb),text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID))))))))),u(contains(agent(A),set(DummySet38)),u(contains(agent(B),set(DummySet38)),u(secret(text(nonce(n(agent(B),nonce(n(agent(A),nonce(n(nat(SID),nat(SID)))))))),protocolid(nb),message(l(agent(B),message(l(agent(A),message(end)))))),u(step2lin(bool(true),bool(true),agent(B),agent(A),publickey(Ka),publickey(Kb),text(DummyNa),text(DummyNb),set(DummySet38),nat(SID),text(Na),nat(PID1001),nat(CID100)),U)))))))
+
+%step3lintoLin
+step3lin(X0,X1,X2,X3,X4,X5,X6,X7,X8,X9,X10) -> 
+lin
+
+%step_3_1
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(Nb),set(Set38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),text(NbDup1),nat(CID100)))),U)) -> 
+u(step3lin(bool(checkeq(publickey(Kb),publickey(KbDup1))),bool(checkeq(text(Nb),text(NbDup1))),agent(B),agent(A),publickey(Ka),publickey(Kb),text(Na),text(Nb),set(Set38),nat(SID),nat(CID100)),u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat3),text(Na),text(Nb),set(Set38),nat(SID)),u(iknows(message(crypt(publickey(KbDup1),text(NbDup1),nat(CID100)))),U)))
+
+%step_3_2
+u(step3lin(bool(true),bool(true),agent(B),agent(A),publickey(Ka),publickey(Kb),text(Na),text(Nb),set(Set38),nat(SID),nat(CID100)),U) -> 
+u(statebob(agent(B),agent(A),publickey(Ka),publickey(Kb),nat(nat5),text(Na),text(Nb),set(Set38),nat(SID)),u(request(agent(B),agent(A),protocolid(bobalicena),text(Na),nat(SID)),u(step3lin(bool(true),bool(true),agent(B),agent(A),publickey(Ka),publickey(Kb),text(Na),text(Nb),set(Set38),nat(SID),nat(CID100)),U)))
+
+%check_step_1lin
+bool(checkeq(step1lin(bool(Vboolc10),bool(Vboolc11),bool(Vboolc12),agent(Vagentc13),agent(Vagentc14),publickey(Vpublickeyc15),publickey(Vpublickeyc16),text(Vtextc17),text(Vtextc18),set(Vsetc19),nat(Vnatc110),text(Vtextc111),nat(Vnatc112),nat(Vnatc113)),step1lin(bool(Vboolc20),bool(Vboolc21),bool(Vboolc22),agent(Vagentc23),agent(Vagentc24),publickey(Vpublickeyc25),publickey(Vpublickeyc26),text(Vtextc27),text(Vtextc28),set(Vsetc29),nat(Vnatc210),text(Vtextc211),nat(Vnatc212),nat(Vnatc213)))) -> 
+bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),
+bool(and(bool(checkeq(bool(Vboolc11),bool(Vboolc21))),
+bool(and(bool(checkeq(bool(Vboolc12),bool(Vboolc22))),
+bool(and(bool(checkeq(agent(Vagentc13),agent(Vagentc23))),
+bool(and(bool(checkeq(agent(Vagentc14),agent(Vagentc24))),
+bool(and(bool(checkeq(publickey(Vpublickeyc15),publickey(Vpublickeyc25))),
+bool(and(bool(checkeq(publickey(Vpublickeyc16),publickey(Vpublickeyc26))),
+bool(and(bool(checkeq(text(Vtextc17),text(Vtextc27))),
+bool(and(bool(checkeq(text(Vtextc18),text(Vtextc28))),
+bool(and(bool(checkeq(set(Vsetc19),set(Vsetc29))),
+bool(and(bool(checkeq(nat(Vnatc110),nat(Vnatc210))),
+bool(and(bool(checkeq(text(Vtextc111),text(Vtextc211))),
+bool(and(bool(checkeq(nat(Vnatc112),nat(Vnatc212))),
+bool(and(bool(checkeq(nat(Vnatc113),nat(Vnatc213))),
+bool(true)))))))))))))))))))))))))))))
+
+%check_safe
+bool(checkeq(state(safe),state(safe))) -> 
+bool(true)
+
+%checkFalsesafeunsafe
+bool(checkeq(state(safe),state(unsafe))) -> 
+bool(false)
+
+%check_knowledge
+bool(checkeq(knowledge,knowledge)) -> 
+bool(true)
+
+%checkFalseknowledgelin
+bool(checkeq(knowledge,lin)) -> 
+bool(false)
+
+%checkFalseknowledgesecrecy
+bool(checkeq(knowledge,secrecy)) -> 
+bool(false)
+
+%check_ki
+bool(checkeq(publickey(ki),publickey(ki))) -> 
+bool(true)
+
+%checkFalsekikb
+bool(checkeq(publickey(ki),publickey(kb))) -> 
+bool(false)
+
+%checkFalsekika
+bool(checkeq(publickey(ki),publickey(ka))) -> 
+bool(false)
+
+%check_kb
+bool(checkeq(publickey(kb),publickey(kb))) -> 
+bool(true)
+
+%checkFalsekbki
+bool(checkeq(publickey(kb),publickey(ki))) -> 
+bool(false)
+
+%checkFalsekbka
+bool(checkeq(publickey(kb),publickey(ka))) -> 
+bool(false)
+
+%check_ka
+bool(checkeq(publickey(ka),publickey(ka))) -> 
+bool(true)
+
+%checkFalsekaki
+bool(checkeq(publickey(ka),publickey(ki))) -> 
+bool(false)
+
+%checkFalsekakb
+bool(checkeq(publickey(ka),publickey(kb))) -> 
+bool(false)
+
+%check_check_i
+bool(checkeq(state(checki(message(Vmessagec10))),state(checki(message(Vmessagec20))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(true)))))
+
+%check_pair
+bool(checkeq(pairT(pair(message(Vmessagec10),message(Vmessagec11))),pairT(pair(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_secret
+bool(checkeq(secret(message(Vmessagec10),protocolid(Vprotocolidc11),state(Vstatec12)),secret(message(Vmessagec20),protocolid(Vprotocolidc21),state(Vstatec22)))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(protocolid(Vprotocolidc11),protocolid(Vprotocolidc21))),bool(and(bool(checkeq(state(Vstatec12),state(Vstatec22))),bool(true)))))))))
+
+%check_unsafe
+bool(checkeq(state(unsafe),state(unsafe))) -> 
+bool(true)
+
+%checkFalseunsafesafe
+bool(checkeq(state(unsafe),state(safe))) -> 
+bool(false)
+
+%check_dummy_nonce
+bool(checkeq(text(dummynonce),text(dummynonce))) -> 
+bool(true)
+
+%check_pnulli
+bool(checkeq(nat(pnulli),nat(pnulli))) -> 
+bool(true)
+
+%checkFalsepnulliscnulli
+bool(checkeq(nat(pnulli),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsepnullipos0
+bool(checkeq(nat(pnulli),nat(pos0))) -> 
+bool(false)
+
+%checkFalsepnullinulli
+bool(checkeq(nat(pnulli),nat(nulli))) -> 
+bool(false)
+
+%checkFalsepnullicnulli
+bool(checkeq(nat(pnulli),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsepnullinat10
+bool(checkeq(nat(pnulli),nat(nat10))) -> 
+bool(false)
+
+%checkFalsepnullipos01
+bool(checkeq(nat(pnulli),nat(pos01))) -> 
+bool(false)
+
+%checkFalsepnullinat6
+bool(checkeq(nat(pnulli),nat(nat6))) -> 
+bool(false)
+
+%checkFalsepnullinat5
+bool(checkeq(nat(pnulli),nat(nat5))) -> 
+bool(false)
+
+%checkFalsepnullinat4
+bool(checkeq(nat(pnulli),nat(nat4))) -> 
+bool(false)
+
+%checkFalsepnullinat3
+bool(checkeq(nat(pnulli),nat(nat3))) -> 
+bool(false)
+
+%checkFalsepnullinat2
+bool(checkeq(nat(pnulli),nat(nat2))) -> 
+bool(false)
+
+%checkFalsepnullinat1
+bool(checkeq(nat(pnulli),nat(nat1))) -> 
+bool(false)
+
+%checkFalsepnullinat0
+bool(checkeq(nat(pnulli),nat(nat0))) -> 
+bool(false)
+
+%checkFalsepnullipos011
+bool(checkeq(nat(pnulli),nat(pos011))) -> 
+bool(false)
+
+%checkFalsepnullistep_2
+bool(checkeq(nat(pnulli),nat(step2))) -> 
+bool(false)
+
+%checkFalsepnullistep_1
+bool(checkeq(nat(pnulli),nat(step1))) -> 
+bool(false)
+
+%checkFalsepnullistep_0
+bool(checkeq(nat(pnulli),nat(step0))) -> 
+bool(false)
+
+%check_pid
+bool(checkeq(nat(pid(nat(Vnatc10),text(Vtextc11),text(Vtextc12))),nat(pid(nat(Vnatc20),text(Vtextc21),text(Vtextc22))))) -> 
+bool(and(bool(and(bool(checkeq(nat(Vnatc10),nat(Vnatc20))),bool(and(bool(checkeq(text(Vtextc11),text(Vtextc21))),bool(and(bool(checkeq(text(Vtextc12),text(Vtextc22))),bool(true)))))))))
+
+%check_lin
+bool(checkeq(lin,lin)) -> 
+bool(true)
+
+%checkFalselinknowledge
+bool(checkeq(lin,knowledge)) -> 
+bool(false)
+
+%checkFalselinsecrecy
+bool(checkeq(lin,secrecy)) -> 
+bool(false)
+
+%check_step_2lin
+bool(checkeq(step2lin(bool(Vboolc10),bool(Vboolc11),agent(Vagentc12),agent(Vagentc13),publickey(Vpublickeyc14),publickey(Vpublickeyc15),text(Vtextc16),text(Vtextc17),set(Vsetc18),nat(Vnatc19),text(Vtextc110),nat(Vnatc111),nat(Vnatc112)),step2lin(bool(Vboolc20),bool(Vboolc21),agent(Vagentc22),agent(Vagentc23),publickey(Vpublickeyc24),publickey(Vpublickeyc25),text(Vtextc26),text(Vtextc27),set(Vsetc28),nat(Vnatc29),text(Vtextc210),nat(Vnatc211),nat(Vnatc212)))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(bool(Vboolc11),bool(Vboolc21))),bool(and(bool(checkeq(agent(Vagentc12),agent(Vagentc22))),bool(and(bool(checkeq(agent(Vagentc13),agent(Vagentc23))),bool(and(bool(checkeq(publickey(Vpublickeyc14),publickey(Vpublickeyc24))),bool(and(bool(checkeq(publickey(Vpublickeyc15),publickey(Vpublickeyc25))),bool(and(bool(checkeq(text(Vtextc16),text(Vtextc26))),bool(and(bool(checkeq(text(Vtextc17),text(Vtextc27))),bool(and(bool(checkeq(set(Vsetc18),set(Vsetc28))),bool(and(bool(checkeq(nat(Vnatc19),nat(Vnatc29))),bool(and(bool(checkeq(text(Vtextc110),text(Vtextc210))),bool(and(bool(checkeq(nat(Vnatc111),nat(Vnatc211))),bool(and(bool(checkeq(nat(Vnatc112),nat(Vnatc212))),bool(true)))))))))))))))))))))))))))))
+
+%check_null
+bool(checkeq(message(null),message(null))) -> 
+bool(true)
+
+%checkFalsenullend
+bool(checkeq(message(null),message(end))) -> 
+bool(false)
+
+%checkFalsenullnull0
+bool(checkeq(message(null),message(null0))) -> 
+bool(false)
+
+%checkFalsenullstart
+bool(checkeq(message(null),message(start))) -> 
+bool(false)
+
+%check_iknows
+bool(checkeq(iknows(message(Vmessagec10)),iknows(message(Vmessagec20)))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(true)))))
+
+%check_scnulli
+bool(checkeq(nat(scnulli),nat(scnulli))) -> 
+bool(true)
+
+%checkFalsescnullipnulli
+bool(checkeq(nat(scnulli),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsescnullipos0
+bool(checkeq(nat(scnulli),nat(pos0))) -> 
+bool(false)
+
+%checkFalsescnullinulli
+bool(checkeq(nat(scnulli),nat(nulli))) -> 
+bool(false)
+
+%checkFalsescnullicnulli
+bool(checkeq(nat(scnulli),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsescnullinat10
+bool(checkeq(nat(scnulli),nat(nat10))) -> 
+bool(false)
+
+%checkFalsescnullipos01
+bool(checkeq(nat(scnulli),nat(pos01))) -> 
+bool(false)
+
+%checkFalsescnullinat6
+bool(checkeq(nat(scnulli),nat(nat6))) -> 
+bool(false)
+
+%checkFalsescnullinat5
+bool(checkeq(nat(scnulli),nat(nat5))) -> 
+bool(false)
+
+%checkFalsescnullinat4
+bool(checkeq(nat(scnulli),nat(nat4))) -> 
+bool(false)
+
+%checkFalsescnullinat3
+bool(checkeq(nat(scnulli),nat(nat3))) -> 
+bool(false)
+
+%checkFalsescnullinat2
+bool(checkeq(nat(scnulli),nat(nat2))) -> 
+bool(false)
+
+%checkFalsescnullinat1
+bool(checkeq(nat(scnulli),nat(nat1))) -> 
+bool(false)
+
+%checkFalsescnullinat0
+bool(checkeq(nat(scnulli),nat(nat0))) -> 
+bool(false)
+
+%checkFalsescnullipos011
+bool(checkeq(nat(scnulli),nat(pos011))) -> 
+bool(false)
+
+%checkFalsescnullistep_2
+bool(checkeq(nat(scnulli),nat(step2))) -> 
+bool(false)
+
+%checkFalsescnullistep_1
+bool(checkeq(nat(scnulli),nat(step1))) -> 
+bool(false)
+
+%checkFalsescnullistep_0
+bool(checkeq(nat(scnulli),nat(step0))) -> 
+bool(false)
+
+%check_contains
+bool(checkeq(contains(message(Vmessagec10),set(Vsetc11)),contains(message(Vmessagec20),set(Vsetc21)))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(set(Vsetc11),set(Vsetc21))),bool(true)))))))
+
+%check_pos0
+bool(checkeq(nat(pos0),nat(pos0))) -> 
+bool(true)
+
+%checkFalsepos0pnulli
+bool(checkeq(nat(pos0),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsepos0scnulli
+bool(checkeq(nat(pos0),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsepos0nulli
+bool(checkeq(nat(pos0),nat(nulli))) -> 
+bool(false)
+
+%checkFalsepos0cnulli
+bool(checkeq(nat(pos0),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsepos0nat10
+bool(checkeq(nat(pos0),nat(nat10))) -> 
+bool(false)
+
+%checkFalsepos0pos01
+bool(checkeq(nat(pos0),nat(pos01))) -> 
+bool(false)
+
+%checkFalsepos0nat6
+bool(checkeq(nat(pos0),nat(nat6))) -> 
+bool(false)
+
+%checkFalsepos0nat5
+bool(checkeq(nat(pos0),nat(nat5))) -> 
+bool(false)
+
+%checkFalsepos0nat4
+bool(checkeq(nat(pos0),nat(nat4))) -> 
+bool(false)
+
+%checkFalsepos0nat3
+bool(checkeq(nat(pos0),nat(nat3))) -> 
+bool(false)
+
+%checkFalsepos0nat2
+bool(checkeq(nat(pos0),nat(nat2))) -> 
+bool(false)
+
+%checkFalsepos0nat1
+bool(checkeq(nat(pos0),nat(nat1))) -> 
+bool(false)
+
+%checkFalsepos0nat0
+bool(checkeq(nat(pos0),nat(nat0))) -> 
+bool(false)
+
+%checkFalsepos0pos011
+bool(checkeq(nat(pos0),nat(pos011))) -> 
+bool(false)
+
+%checkFalsepos0step_2
+bool(checkeq(nat(pos0),nat(step2))) -> 
+bool(false)
+
+%checkFalsepos0step_1
+bool(checkeq(nat(pos0),nat(step1))) -> 
+bool(false)
+
+%checkFalsepos0step_0
+bool(checkeq(nat(pos0),nat(step0))) -> 
+bool(false)
+
+%check_inv
+bool(checkeq(message(inv(message(Vmessagec10))),message(inv(message(Vmessagec20))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(true)))))
+
+%check_set_78
+bool(checkeq(set(set78),set(set78))) -> 
+bool(true)
+
+%checkFalseset_78set_77
+bool(checkeq(set(set78),set(set77))) -> 
+bool(false)
+
+%checkFalseset_78set_76
+bool(checkeq(set(set78),set(set76))) -> 
+bool(false)
+
+%checkFalseset_78set_74
+bool(checkeq(set(set78),set(set74))) -> 
+bool(false)
+
+%checkFalseset_78set_70
+bool(checkeq(set(set78),set(set70))) -> 
+bool(false)
+
+%checkFalseset_78set_62
+bool(checkeq(set(set78),set(set62))) -> 
+bool(false)
+
+%check_nulli
+bool(checkeq(nat(nulli),nat(nulli))) -> 
+bool(true)
+
+%checkFalsenullipnulli
+bool(checkeq(nat(nulli),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenulliscnulli
+bool(checkeq(nat(nulli),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenullipos0
+bool(checkeq(nat(nulli),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenullicnulli
+bool(checkeq(nat(nulli),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenullinat10
+bool(checkeq(nat(nulli),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenullipos01
+bool(checkeq(nat(nulli),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenullinat6
+bool(checkeq(nat(nulli),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenullinat5
+bool(checkeq(nat(nulli),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenullinat4
+bool(checkeq(nat(nulli),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenullinat3
+bool(checkeq(nat(nulli),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenullinat2
+bool(checkeq(nat(nulli),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenullinat1
+bool(checkeq(nat(nulli),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenullinat0
+bool(checkeq(nat(nulli),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenullipos011
+bool(checkeq(nat(nulli),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenullistep_2
+bool(checkeq(nat(nulli),nat(step2))) -> 
+bool(false)
+
+%checkFalsenullistep_1
+bool(checkeq(nat(nulli),nat(step1))) -> 
+bool(false)
+
+%checkFalsenullistep_0
+bool(checkeq(nat(nulli),nat(step0))) -> 
+bool(false)
+
+%check_set_77
+bool(checkeq(set(set77),set(set77))) -> 
+bool(true)
+
+%checkFalseset_77set_78
+bool(checkeq(set(set77),set(set78))) -> 
+bool(false)
+
+%checkFalseset_77set_76
+bool(checkeq(set(set77),set(set76))) -> 
+bool(false)
+
+%checkFalseset_77set_74
+bool(checkeq(set(set77),set(set74))) -> 
+bool(false)
+
+%checkFalseset_77set_70
+bool(checkeq(set(set77),set(set70))) -> 
+bool(false)
+
+%checkFalseset_77set_62
+bool(checkeq(set(set77),set(set62))) -> 
+bool(false)
+
+%check_set_76
+bool(checkeq(set(set76),set(set76))) -> 
+bool(true)
+
+%checkFalseset_76set_78
+bool(checkeq(set(set76),set(set78))) -> 
+bool(false)
+
+%checkFalseset_76set_77
+bool(checkeq(set(set76),set(set77))) -> 
+bool(false)
+
+%checkFalseset_76set_74
+bool(checkeq(set(set76),set(set74))) -> 
+bool(false)
+
+%checkFalseset_76set_70
+bool(checkeq(set(set76),set(set70))) -> 
+bool(false)
+
+%checkFalseset_76set_62
+bool(checkeq(set(set76),set(set62))) -> 
+bool(false)
+
+%check_set_74
+bool(checkeq(set(set74),set(set74))) -> 
+bool(true)
+
+%checkFalseset_74set_78
+bool(checkeq(set(set74),set(set78))) -> 
+bool(false)
+
+%checkFalseset_74set_77
+bool(checkeq(set(set74),set(set77))) -> 
+bool(false)
+
+%checkFalseset_74set_76
+bool(checkeq(set(set74),set(set76))) -> 
+bool(false)
+
+%checkFalseset_74set_70
+bool(checkeq(set(set74),set(set70))) -> 
+bool(false)
+
+%checkFalseset_74set_62
+bool(checkeq(set(set74),set(set62))) -> 
+bool(false)
+
+%check_set_70
+bool(checkeq(set(set70),set(set70))) -> 
+bool(true)
+
+%checkFalseset_70set_78
+bool(checkeq(set(set70),set(set78))) -> 
+bool(false)
+
+%checkFalseset_70set_77
+bool(checkeq(set(set70),set(set77))) -> 
+bool(false)
+
+%checkFalseset_70set_76
+bool(checkeq(set(set70),set(set76))) -> 
+bool(false)
+
+%checkFalseset_70set_74
+bool(checkeq(set(set70),set(set74))) -> 
+bool(false)
+
+%checkFalseset_70set_62
+bool(checkeq(set(set70),set(set62))) -> 
+bool(false)
+
+%check_true
+bool(checkeq(bool(true),bool(true))) -> 
+bool(true)
+
+%checkFalsetruefalse
+bool(checkeq(bool(true),bool(false))) -> 
+bool(false)
+
+%check_alice_bob_nb
+bool(checkeq(protocolid(alicebobnb),protocolid(alicebobnb))) -> 
+bool(true)
+
+%checkFalsealice_bob_nbbob_alice_na
+bool(checkeq(protocolid(alicebobnb),protocolid(bobalicena))) -> 
+bool(false)
+
+%checkFalsealice_bob_nbnb
+bool(checkeq(protocolid(alicebobnb),protocolid(nb))) -> 
+bool(false)
+
+%checkFalsealice_bob_nbna
+bool(checkeq(protocolid(alicebobnb),protocolid(na))) -> 
+bool(false)
+
+%check_end
+bool(checkeq(message(end),message(end))) -> 
+bool(true)
+
+%checkFalseendnull
+bool(checkeq(message(end),message(null))) -> 
+bool(false)
+
+%checkFalseendnull0
+bool(checkeq(message(end),message(null0))) -> 
+bool(false)
+
+%checkFalseendstart
+bool(checkeq(message(end),message(start))) -> 
+bool(false)
+
+%check_set_62
+bool(checkeq(set(set62),set(set62))) -> 
+bool(true)
+
+%checkFalseset_62set_78
+bool(checkeq(set(set62),set(set78))) -> 
+bool(false)
+
+%checkFalseset_62set_77
+bool(checkeq(set(set62),set(set77))) -> 
+bool(false)
+
+%checkFalseset_62set_76
+bool(checkeq(set(set62),set(set76))) -> 
+bool(false)
+
+%checkFalseset_62set_74
+bool(checkeq(set(set62),set(set74))) -> 
+bool(false)
+
+%checkFalseset_62set_70
+bool(checkeq(set(set62),set(set70))) -> 
+bool(false)
+
+%check_failure
+bool(checkeq(message(failure(bool(Vboolc10),message(Vmessagec11))),message(failure(bool(Vboolc20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_bob_alice_na
+bool(checkeq(protocolid(bobalicena),protocolid(bobalicena))) -> 
+bool(true)
+
+%checkFalsebob_alice_naalice_bob_nb
+bool(checkeq(protocolid(bobalicena),protocolid(alicebobnb))) -> 
+bool(false)
+
+%checkFalsebob_alice_nanb
+bool(checkeq(protocolid(bobalicena),protocolid(nb))) -> 
+bool(false)
+
+%checkFalsebob_alice_nana
+bool(checkeq(protocolid(bobalicena),protocolid(na))) -> 
+bool(false)
+
+%check_step_3lin
+bool(checkeq(step3lin(bool(Vboolc10),bool(Vboolc11),agent(Vagentc12),agent(Vagentc13),publickey(Vpublickeyc14),publickey(Vpublickeyc15),text(Vtextc16),text(Vtextc17),set(Vsetc18),nat(Vnatc19),nat(Vnatc110)),step3lin(bool(Vboolc20),bool(Vboolc21),agent(Vagentc22),agent(Vagentc23),publickey(Vpublickeyc24),publickey(Vpublickeyc25),text(Vtextc26),text(Vtextc27),set(Vsetc28),nat(Vnatc29),nat(Vnatc210)))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(bool(Vboolc11),bool(Vboolc21))),bool(and(bool(checkeq(agent(Vagentc12),agent(Vagentc22))),bool(and(bool(checkeq(agent(Vagentc13),agent(Vagentc23))),bool(and(bool(checkeq(publickey(Vpublickeyc14),publickey(Vpublickeyc24))),bool(and(bool(checkeq(publickey(Vpublickeyc15),publickey(Vpublickeyc25))),bool(and(bool(checkeq(text(Vtextc16),text(Vtextc26))),bool(and(bool(checkeq(text(Vtextc17),text(Vtextc27))),bool(and(bool(checkeq(set(Vsetc18),set(Vsetc28))),bool(and(bool(checkeq(nat(Vnatc19),nat(Vnatc29))),bool(and(bool(checkeq(nat(Vnatc110),nat(Vnatc210))),bool(true)))))))))))))))))))))))))
+
+%check_state_alice
+bool(checkeq(statealice(agent(Vagentc10),agent(Vagentc11),publickey(Vpublickeyc12),publickey(Vpublickeyc13),nat(Vnatc14),text(Vtextc15),text(Vtextc16),set(Vsetc17),nat(Vnatc18)),statealice(agent(Vagentc20),agent(Vagentc21),publickey(Vpublickeyc22),publickey(Vpublickeyc23),nat(Vnatc24),text(Vtextc25),text(Vtextc26),set(Vsetc27),nat(Vnatc28)))) -> 
+bool(and(bool(and(bool(checkeq(agent(Vagentc10),agent(Vagentc20))),bool(and(bool(checkeq(agent(Vagentc11),agent(Vagentc21))),bool(and(bool(checkeq(publickey(Vpublickeyc12),publickey(Vpublickeyc22))),bool(and(bool(checkeq(publickey(Vpublickeyc13),publickey(Vpublickeyc23))),bool(and(bool(checkeq(nat(Vnatc14),nat(Vnatc24))),bool(and(bool(checkeq(text(Vtextc15),text(Vtextc25))),bool(and(bool(checkeq(text(Vtextc16),text(Vtextc26))),bool(and(bool(checkeq(set(Vsetc17),set(Vsetc27))),bool(and(bool(checkeq(nat(Vnatc18),nat(Vnatc28))),bool(true)))))))))))))))))))))
+
+%check_and
+bool(checkeq(bool(and(bool(Vboolc10),bool(Vboolc11))),bool(and(bool(Vboolc20),bool(Vboolc21))))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(bool(Vboolc11),bool(Vboolc21))),bool(true)))))))
+
+%check_scrypt
+bool(checkeq(message(scrypt(message(Vmessagec10),message(Vmessagec11),nat(Vnatc12))),message(scrypt(message(Vmessagec20),message(Vmessagec21),nat(Vnatc22))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(nat(Vnatc12),nat(Vnatc22))),bool(true)))))))))
+
+%check_null4
+bool(checkeq(message(null4(message(Vmessagec10),message(Vmessagec11),message(Vmessagec12),message(Vmessagec13))),message(null4(message(Vmessagec20),message(Vmessagec21),message(Vmessagec22),message(Vmessagec23))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(message(Vmessagec12),message(Vmessagec22))),bool(and(bool(checkeq(message(Vmessagec13),message(Vmessagec23))),bool(true)))))))))))
+
+%check_null3
+bool(checkeq(message(null3(message(Vmessagec10),message(Vmessagec11),message(Vmessagec12))),message(null3(message(Vmessagec20),message(Vmessagec21),message(Vmessagec22))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(message(Vmessagec12),message(Vmessagec22))),bool(true)))))))))
+
+%check_null2
+bool(checkeq(message(null2(message(Vmessagec10),message(Vmessagec11))),message(null2(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_null1
+bool(checkeq(message(null1(message(Vmessagec10))),message(null1(message(Vmessagec20))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(true)))))
+
+%check_witness
+bool(checkeq(witness(agent(Vagentc10),agent(Vagentc11),protocolid(Vprotocolidc12),message(Vmessagec13)),witness(agent(Vagentc20),agent(Vagentc21),protocolid(Vprotocolidc22),message(Vmessagec23)))) -> 
+bool(and(bool(and(bool(checkeq(agent(Vagentc10),agent(Vagentc20))),bool(and(bool(checkeq(agent(Vagentc11),agent(Vagentc21))),bool(and(bool(checkeq(protocolid(Vprotocolidc12),protocolid(Vprotocolidc22))),bool(and(bool(checkeq(message(Vmessagec13),message(Vmessagec23))),bool(true)))))))))))
+
+%check_null0
+bool(checkeq(message(null0),message(null0))) -> 
+bool(true)
+
+%checkFalsenull0null
+bool(checkeq(message(null0),message(null))) -> 
+bool(false)
+
+%checkFalsenull0end
+bool(checkeq(message(null0),message(end))) -> 
+bool(false)
+
+%checkFalsenull0start
+bool(checkeq(message(null0),message(start))) -> 
+bool(false)
+
+%check_secrecy
+bool(checkeq(secrecy,secrecy)) -> 
+bool(true)
+
+%checkFalsesecrecyknowledge
+bool(checkeq(secrecy,knowledge)) -> 
+bool(false)
+
+%checkFalsesecrecylin
+bool(checkeq(secrecy,lin)) -> 
+bool(false)
+
+%check_exp
+bool(checkeq(message(exp(message(Vmessagec10),message(Vmessagec11))),message(exp(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_xor
+bool(checkeq(message(xor(message(Vmessagec10),message(Vmessagec11))),message(xor(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_wrequest
+bool(checkeq(wrequest(agent(Vagentc10),agent(Vagentc11),protocolid(Vprotocolidc12),message(Vmessagec13),nat(Vnatc14)),wrequest(agent(Vagentc20),agent(Vagentc21),protocolid(Vprotocolidc22),message(Vmessagec23),nat(Vnatc24)))) -> 
+bool(and(bool(and(bool(checkeq(agent(Vagentc10),agent(Vagentc20))),bool(and(bool(checkeq(agent(Vagentc11),agent(Vagentc21))),bool(and(bool(checkeq(protocolid(Vprotocolidc12),protocolid(Vprotocolidc22))),bool(and(bool(checkeq(message(Vmessagec13),message(Vmessagec23))),bool(and(bool(checkeq(nat(Vnatc14),nat(Vnatc24))),bool(true)))))))))))))
+
+%check_u
+bool(checkeq(u(message(Vmessagec10),Vunionc11),u(message(Vmessagec20),Vunionc21))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(Vunionc11,Vunionc21)),bool(true)))))))
+
+%check_false
+bool(checkeq(bool(false),bool(false))) -> 
+bool(true)
+
+%checkFalsefalsetrue
+bool(checkeq(bool(false),bool(true))) -> 
+bool(false)
+
+%check_n
+bool(checkeq(nonce(n(message(Vmessagec10),message(Vmessagec11))),nonce(n(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_l
+bool(checkeq(message(l(message(Vmessagec10),message(Vmessagec11))),message(l(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_ana_cryptlin
+bool(checkeq(anacryptlin(bool(Vboolc10),message(Vmessagec11),message(Vmessagec12),nat(Vnatc13)),anacryptlin(bool(Vboolc20),message(Vmessagec21),message(Vmessagec22),nat(Vnatc23)))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(message(Vmessagec12),message(Vmessagec22))),bool(and(bool(checkeq(nat(Vnatc13),nat(Vnatc23))),bool(true)))))))))))
+
+%check_i
+bool(checkeq(agent(i),agent(i))) -> 
+bool(true)
+
+%checkFalseib
+bool(checkeq(agent(i),agent(b))) -> 
+bool(false)
+
+%checkFalseia
+bool(checkeq(agent(i),agent(a))) -> 
+bool(false)
+
+%check_ana_scryptSymOnlylin
+bool(checkeq(anascryptSymOnlylin(bool(Vboolc10),symmetrickey(Vsymmetrickeyc11),message(Vmessagec12),nat(Vnatc13)),anascryptSymOnlylin(bool(Vboolc20),symmetrickey(Vsymmetrickeyc21),message(Vmessagec22),nat(Vnatc23)))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(symmetrickey(Vsymmetrickeyc11),symmetrickey(Vsymmetrickeyc21))),bool(and(bool(checkeq(message(Vmessagec12),message(Vmessagec22))),bool(and(bool(checkeq(nat(Vnatc13),nat(Vnatc23))),bool(true)))))))))))
+
+%check_b
+bool(checkeq(agent(b),agent(b))) -> 
+bool(true)
+
+%checkFalsebi
+bool(checkeq(agent(b),agent(i))) -> 
+bool(false)
+
+%checkFalseba
+bool(checkeq(agent(b),agent(a))) -> 
+bool(false)
+
+%check_a
+bool(checkeq(agent(a),agent(a))) -> 
+bool(true)
+
+%checkFalseai
+bool(checkeq(agent(a),agent(i))) -> 
+bool(false)
+
+%checkFalseab
+bool(checkeq(agent(a),agent(b))) -> 
+bool(false)
+
+%check_start
+bool(checkeq(message(start),message(start))) -> 
+bool(true)
+
+%checkFalsestartnull
+bool(checkeq(message(start),message(null))) -> 
+bool(false)
+
+%checkFalsestartend
+bool(checkeq(message(start),message(end))) -> 
+bool(false)
+
+%checkFalsestartnull0
+bool(checkeq(message(start),message(null0))) -> 
+bool(false)
+
+%check_crypt
+bool(checkeq(message(crypt(message(Vmessagec10),message(Vmessagec11),nat(Vnatc12))),message(crypt(message(Vmessagec20),message(Vmessagec21),nat(Vnatc22))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(nat(Vnatc12),nat(Vnatc22))),bool(true)))))))))
+
+%check_cid
+bool(checkeq(nat(cid(nat(Vnatc10),text(Vtextc11),text(Vtextc12))),nat(cid(nat(Vnatc20),text(Vtextc21),text(Vtextc22))))) -> 
+bool(and(bool(and(bool(checkeq(nat(Vnatc10),nat(Vnatc20))),bool(and(bool(checkeq(text(Vtextc11),text(Vtextc21))),bool(and(bool(checkeq(text(Vtextc12),text(Vtextc22))),bool(true)))))))))
+
+%check_cnulli
+bool(checkeq(nat(cnulli),nat(cnulli))) -> 
+bool(true)
+
+%checkFalsecnullipnulli
+bool(checkeq(nat(cnulli),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsecnulliscnulli
+bool(checkeq(nat(cnulli),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsecnullipos0
+bool(checkeq(nat(cnulli),nat(pos0))) -> 
+bool(false)
+
+%checkFalsecnullinulli
+bool(checkeq(nat(cnulli),nat(nulli))) -> 
+bool(false)
+
+%checkFalsecnullinat10
+bool(checkeq(nat(cnulli),nat(nat10))) -> 
+bool(false)
+
+%checkFalsecnullipos01
+bool(checkeq(nat(cnulli),nat(pos01))) -> 
+bool(false)
+
+%checkFalsecnullinat6
+bool(checkeq(nat(cnulli),nat(nat6))) -> 
+bool(false)
+
+%checkFalsecnullinat5
+bool(checkeq(nat(cnulli),nat(nat5))) -> 
+bool(false)
+
+%checkFalsecnullinat4
+bool(checkeq(nat(cnulli),nat(nat4))) -> 
+bool(false)
+
+%checkFalsecnullinat3
+bool(checkeq(nat(cnulli),nat(nat3))) -> 
+bool(false)
+
+%checkFalsecnullinat2
+bool(checkeq(nat(cnulli),nat(nat2))) -> 
+bool(false)
+
+%checkFalsecnullinat1
+bool(checkeq(nat(cnulli),nat(nat1))) -> 
+bool(false)
+
+%checkFalsecnullinat0
+bool(checkeq(nat(cnulli),nat(nat0))) -> 
+bool(false)
+
+%checkFalsecnullipos011
+bool(checkeq(nat(cnulli),nat(pos011))) -> 
+bool(false)
+
+%checkFalsecnullistep_2
+bool(checkeq(nat(cnulli),nat(step2))) -> 
+bool(false)
+
+%checkFalsecnullistep_1
+bool(checkeq(nat(cnulli),nat(step1))) -> 
+bool(false)
+
+%checkFalsecnullistep_0
+bool(checkeq(nat(cnulli),nat(step0))) -> 
+bool(false)
+
+%check_apply
+bool(checkeq(message(apply(message(Vmessagec10),message(Vmessagec11))),message(apply(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_nb
+bool(checkeq(protocolid(nb),protocolid(nb))) -> 
+bool(true)
+
+%checkFalsenbalice_bob_nb
+bool(checkeq(protocolid(nb),protocolid(alicebobnb))) -> 
+bool(false)
+
+%checkFalsenbbob_alice_na
+bool(checkeq(protocolid(nb),protocolid(bobalicena))) -> 
+bool(false)
+
+%checkFalsenbna
+bool(checkeq(protocolid(nb),protocolid(na))) -> 
+bool(false)
+
+%check_na
+bool(checkeq(protocolid(na),protocolid(na))) -> 
+bool(true)
+
+%checkFalsenaalice_bob_nb
+bool(checkeq(protocolid(na),protocolid(alicebobnb))) -> 
+bool(false)
+
+%checkFalsenabob_alice_na
+bool(checkeq(protocolid(na),protocolid(bobalicena))) -> 
+bool(false)
+
+%checkFalsenanb
+bool(checkeq(protocolid(na),protocolid(nb))) -> 
+bool(false)
+
+%check_nat10
+bool(checkeq(nat(nat10),nat(nat10))) -> 
+bool(true)
+
+%checkFalsenat10pnulli
+bool(checkeq(nat(nat10),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat10scnulli
+bool(checkeq(nat(nat10),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat10pos0
+bool(checkeq(nat(nat10),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat10nulli
+bool(checkeq(nat(nat10),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat10cnulli
+bool(checkeq(nat(nat10),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat10pos01
+bool(checkeq(nat(nat10),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat10nat6
+bool(checkeq(nat(nat10),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat10nat5
+bool(checkeq(nat(nat10),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat10nat4
+bool(checkeq(nat(nat10),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat10nat3
+bool(checkeq(nat(nat10),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat10nat2
+bool(checkeq(nat(nat10),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat10nat1
+bool(checkeq(nat(nat10),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat10nat0
+bool(checkeq(nat(nat10),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat10pos011
+bool(checkeq(nat(nat10),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat10step_2
+bool(checkeq(nat(nat10),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat10step_1
+bool(checkeq(nat(nat10),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat10step_0
+bool(checkeq(nat(nat10),nat(step0))) -> 
+bool(false)
+
+%check_pos01
+bool(checkeq(nat(pos01),nat(pos01))) -> 
+bool(true)
+
+%checkFalsepos01pnulli
+bool(checkeq(nat(pos01),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsepos01scnulli
+bool(checkeq(nat(pos01),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsepos01pos0
+bool(checkeq(nat(pos01),nat(pos0))) -> 
+bool(false)
+
+%checkFalsepos01nulli
+bool(checkeq(nat(pos01),nat(nulli))) -> 
+bool(false)
+
+%checkFalsepos01cnulli
+bool(checkeq(nat(pos01),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsepos01nat10
+bool(checkeq(nat(pos01),nat(nat10))) -> 
+bool(false)
+
+%checkFalsepos01nat6
+bool(checkeq(nat(pos01),nat(nat6))) -> 
+bool(false)
+
+%checkFalsepos01nat5
+bool(checkeq(nat(pos01),nat(nat5))) -> 
+bool(false)
+
+%checkFalsepos01nat4
+bool(checkeq(nat(pos01),nat(nat4))) -> 
+bool(false)
+
+%checkFalsepos01nat3
+bool(checkeq(nat(pos01),nat(nat3))) -> 
+bool(false)
+
+%checkFalsepos01nat2
+bool(checkeq(nat(pos01),nat(nat2))) -> 
+bool(false)
+
+%checkFalsepos01nat1
+bool(checkeq(nat(pos01),nat(nat1))) -> 
+bool(false)
+
+%checkFalsepos01nat0
+bool(checkeq(nat(pos01),nat(nat0))) -> 
+bool(false)
+
+%checkFalsepos01pos011
+bool(checkeq(nat(pos01),nat(pos011))) -> 
+bool(false)
+
+%checkFalsepos01step_2
+bool(checkeq(nat(pos01),nat(step2))) -> 
+bool(false)
+
+%checkFalsepos01step_1
+bool(checkeq(nat(pos01),nat(step1))) -> 
+bool(false)
+
+%checkFalsepos01step_0
+bool(checkeq(nat(pos01),nat(step0))) -> 
+bool(false)
+
+%check_request
+bool(checkeq(request(agent(Vagentc10),agent(Vagentc11),protocolid(Vprotocolidc12),message(Vmessagec13),nat(Vnatc14)),request(agent(Vagentc20),agent(Vagentc21),protocolid(Vprotocolidc22),message(Vmessagec23),nat(Vnatc24)))) -> 
+bool(and(bool(and(bool(checkeq(agent(Vagentc10),agent(Vagentc20))),bool(and(bool(checkeq(agent(Vagentc11),agent(Vagentc21))),bool(and(bool(checkeq(protocolid(Vprotocolidc12),protocolid(Vprotocolidc22))),bool(and(bool(checkeq(message(Vmessagec13),message(Vmessagec23))),bool(and(bool(checkeq(nat(Vnatc14),nat(Vnatc24))),bool(true)))))))))))))
+
+%check_check_eq
+bool(checkeq(bool(checkeq(message(Vmessagec10),message(Vmessagec11))),bool(checkeq(message(Vmessagec20),message(Vmessagec21))))) -> 
+bool(and(bool(and(bool(checkeq(message(Vmessagec10),message(Vmessagec20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(true)))))))
+
+%check_nat6
+bool(checkeq(nat(nat6),nat(nat6))) -> 
+bool(true)
+
+%checkFalsenat6pnulli
+bool(checkeq(nat(nat6),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat6scnulli
+bool(checkeq(nat(nat6),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat6pos0
+bool(checkeq(nat(nat6),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat6nulli
+bool(checkeq(nat(nat6),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat6cnulli
+bool(checkeq(nat(nat6),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat6nat10
+bool(checkeq(nat(nat6),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat6pos01
+bool(checkeq(nat(nat6),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat6nat5
+bool(checkeq(nat(nat6),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat6nat4
+bool(checkeq(nat(nat6),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat6nat3
+bool(checkeq(nat(nat6),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat6nat2
+bool(checkeq(nat(nat6),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat6nat1
+bool(checkeq(nat(nat6),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat6nat0
+bool(checkeq(nat(nat6),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat6pos011
+bool(checkeq(nat(nat6),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat6step_2
+bool(checkeq(nat(nat6),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat6step_1
+bool(checkeq(nat(nat6),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat6step_0
+bool(checkeq(nat(nat6),nat(step0))) -> 
+bool(false)
+
+%check_nat5
+bool(checkeq(nat(nat5),nat(nat5))) -> 
+bool(true)
+
+%checkFalsenat5pnulli
+bool(checkeq(nat(nat5),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat5scnulli
+bool(checkeq(nat(nat5),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat5pos0
+bool(checkeq(nat(nat5),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat5nulli
+bool(checkeq(nat(nat5),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat5cnulli
+bool(checkeq(nat(nat5),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat5nat10
+bool(checkeq(nat(nat5),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat5pos01
+bool(checkeq(nat(nat5),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat5nat6
+bool(checkeq(nat(nat5),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat5nat4
+bool(checkeq(nat(nat5),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat5nat3
+bool(checkeq(nat(nat5),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat5nat2
+bool(checkeq(nat(nat5),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat5nat1
+bool(checkeq(nat(nat5),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat5nat0
+bool(checkeq(nat(nat5),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat5pos011
+bool(checkeq(nat(nat5),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat5step_2
+bool(checkeq(nat(nat5),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat5step_1
+bool(checkeq(nat(nat5),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat5step_0
+bool(checkeq(nat(nat5),nat(step0))) -> 
+bool(false)
+
+%check_nat4
+bool(checkeq(nat(nat4),nat(nat4))) -> 
+bool(true)
+
+%checkFalsenat4pnulli
+bool(checkeq(nat(nat4),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat4scnulli
+bool(checkeq(nat(nat4),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat4pos0
+bool(checkeq(nat(nat4),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat4nulli
+bool(checkeq(nat(nat4),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat4cnulli
+bool(checkeq(nat(nat4),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat4nat10
+bool(checkeq(nat(nat4),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat4pos01
+bool(checkeq(nat(nat4),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat4nat6
+bool(checkeq(nat(nat4),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat4nat5
+bool(checkeq(nat(nat4),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat4nat3
+bool(checkeq(nat(nat4),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat4nat2
+bool(checkeq(nat(nat4),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat4nat1
+bool(checkeq(nat(nat4),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat4nat0
+bool(checkeq(nat(nat4),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat4pos011
+bool(checkeq(nat(nat4),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat4step_2
+bool(checkeq(nat(nat4),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat4step_1
+bool(checkeq(nat(nat4),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat4step_0
+bool(checkeq(nat(nat4),nat(step0))) -> 
+bool(false)
+
+%check_nat3
+bool(checkeq(nat(nat3),nat(nat3))) -> 
+bool(true)
+
+%checkFalsenat3pnulli
+bool(checkeq(nat(nat3),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat3scnulli
+bool(checkeq(nat(nat3),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat3pos0
+bool(checkeq(nat(nat3),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat3nulli
+bool(checkeq(nat(nat3),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat3cnulli
+bool(checkeq(nat(nat3),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat3nat10
+bool(checkeq(nat(nat3),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat3pos01
+bool(checkeq(nat(nat3),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat3nat6
+bool(checkeq(nat(nat3),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat3nat5
+bool(checkeq(nat(nat3),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat3nat4
+bool(checkeq(nat(nat3),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat3nat2
+bool(checkeq(nat(nat3),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat3nat1
+bool(checkeq(nat(nat3),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat3nat0
+bool(checkeq(nat(nat3),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat3pos011
+bool(checkeq(nat(nat3),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat3step_2
+bool(checkeq(nat(nat3),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat3step_1
+bool(checkeq(nat(nat3),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat3step_0
+bool(checkeq(nat(nat3),nat(step0))) -> 
+bool(false)
+
+%check_nat2
+bool(checkeq(nat(nat2),nat(nat2))) -> 
+bool(true)
+
+%checkFalsenat2pnulli
+bool(checkeq(nat(nat2),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat2scnulli
+bool(checkeq(nat(nat2),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat2pos0
+bool(checkeq(nat(nat2),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat2nulli
+bool(checkeq(nat(nat2),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat2cnulli
+bool(checkeq(nat(nat2),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat2nat10
+bool(checkeq(nat(nat2),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat2pos01
+bool(checkeq(nat(nat2),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat2nat6
+bool(checkeq(nat(nat2),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat2nat5
+bool(checkeq(nat(nat2),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat2nat4
+bool(checkeq(nat(nat2),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat2nat3
+bool(checkeq(nat(nat2),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat2nat1
+bool(checkeq(nat(nat2),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat2nat0
+bool(checkeq(nat(nat2),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat2pos011
+bool(checkeq(nat(nat2),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat2step_2
+bool(checkeq(nat(nat2),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat2step_1
+bool(checkeq(nat(nat2),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat2step_0
+bool(checkeq(nat(nat2),nat(step0))) -> 
+bool(false)
+
+%check_nat1
+bool(checkeq(nat(nat1),nat(nat1))) -> 
+bool(true)
+
+%checkFalsenat1pnulli
+bool(checkeq(nat(nat1),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat1scnulli
+bool(checkeq(nat(nat1),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat1pos0
+bool(checkeq(nat(nat1),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat1nulli
+bool(checkeq(nat(nat1),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat1cnulli
+bool(checkeq(nat(nat1),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat1nat10
+bool(checkeq(nat(nat1),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat1pos01
+bool(checkeq(nat(nat1),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat1nat6
+bool(checkeq(nat(nat1),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat1nat5
+bool(checkeq(nat(nat1),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat1nat4
+bool(checkeq(nat(nat1),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat1nat3
+bool(checkeq(nat(nat1),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat1nat2
+bool(checkeq(nat(nat1),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat1nat0
+bool(checkeq(nat(nat1),nat(nat0))) -> 
+bool(false)
+
+%checkFalsenat1pos011
+bool(checkeq(nat(nat1),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat1step_2
+bool(checkeq(nat(nat1),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat1step_1
+bool(checkeq(nat(nat1),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat1step_0
+bool(checkeq(nat(nat1),nat(step0))) -> 
+bool(false)
+
+%check_nat0
+bool(checkeq(nat(nat0),nat(nat0))) -> 
+bool(true)
+
+%checkFalsenat0pnulli
+bool(checkeq(nat(nat0),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsenat0scnulli
+bool(checkeq(nat(nat0),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsenat0pos0
+bool(checkeq(nat(nat0),nat(pos0))) -> 
+bool(false)
+
+%checkFalsenat0nulli
+bool(checkeq(nat(nat0),nat(nulli))) -> 
+bool(false)
+
+%checkFalsenat0cnulli
+bool(checkeq(nat(nat0),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsenat0nat10
+bool(checkeq(nat(nat0),nat(nat10))) -> 
+bool(false)
+
+%checkFalsenat0pos01
+bool(checkeq(nat(nat0),nat(pos01))) -> 
+bool(false)
+
+%checkFalsenat0nat6
+bool(checkeq(nat(nat0),nat(nat6))) -> 
+bool(false)
+
+%checkFalsenat0nat5
+bool(checkeq(nat(nat0),nat(nat5))) -> 
+bool(false)
+
+%checkFalsenat0nat4
+bool(checkeq(nat(nat0),nat(nat4))) -> 
+bool(false)
+
+%checkFalsenat0nat3
+bool(checkeq(nat(nat0),nat(nat3))) -> 
+bool(false)
+
+%checkFalsenat0nat2
+bool(checkeq(nat(nat0),nat(nat2))) -> 
+bool(false)
+
+%checkFalsenat0nat1
+bool(checkeq(nat(nat0),nat(nat1))) -> 
+bool(false)
+
+%checkFalsenat0pos011
+bool(checkeq(nat(nat0),nat(pos011))) -> 
+bool(false)
+
+%checkFalsenat0step_2
+bool(checkeq(nat(nat0),nat(step2))) -> 
+bool(false)
+
+%checkFalsenat0step_1
+bool(checkeq(nat(nat0),nat(step1))) -> 
+bool(false)
+
+%checkFalsenat0step_0
+bool(checkeq(nat(nat0),nat(step0))) -> 
+bool(false)
+
+%check_pos011
+bool(checkeq(nat(pos011),nat(pos011))) -> 
+bool(true)
+
+%checkFalsepos011pnulli
+bool(checkeq(nat(pos011),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsepos011scnulli
+bool(checkeq(nat(pos011),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsepos011pos0
+bool(checkeq(nat(pos011),nat(pos0))) -> 
+bool(false)
+
+%checkFalsepos011nulli
+bool(checkeq(nat(pos011),nat(nulli))) -> 
+bool(false)
+
+%checkFalsepos011cnulli
+bool(checkeq(nat(pos011),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsepos011nat10
+bool(checkeq(nat(pos011),nat(nat10))) -> 
+bool(false)
+
+%checkFalsepos011pos01
+bool(checkeq(nat(pos011),nat(pos01))) -> 
+bool(false)
+
+%checkFalsepos011nat6
+bool(checkeq(nat(pos011),nat(nat6))) -> 
+bool(false)
+
+%checkFalsepos011nat5
+bool(checkeq(nat(pos011),nat(nat5))) -> 
+bool(false)
+
+%checkFalsepos011nat4
+bool(checkeq(nat(pos011),nat(nat4))) -> 
+bool(false)
+
+%checkFalsepos011nat3
+bool(checkeq(nat(pos011),nat(nat3))) -> 
+bool(false)
+
+%checkFalsepos011nat2
+bool(checkeq(nat(pos011),nat(nat2))) -> 
+bool(false)
+
+%checkFalsepos011nat1
+bool(checkeq(nat(pos011),nat(nat1))) -> 
+bool(false)
+
+%checkFalsepos011nat0
+bool(checkeq(nat(pos011),nat(nat0))) -> 
+bool(false)
+
+%checkFalsepos011step_2
+bool(checkeq(nat(pos011),nat(step2))) -> 
+bool(false)
+
+%checkFalsepos011step_1
+bool(checkeq(nat(pos011),nat(step1))) -> 
+bool(false)
+
+%checkFalsepos011step_0
+bool(checkeq(nat(pos011),nat(step0))) -> 
+bool(false)
+
+%check_step_2
+bool(checkeq(nat(step2),nat(step2))) -> 
+bool(true)
+
+%checkFalsestep_2pnulli
+bool(checkeq(nat(step2),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsestep_2scnulli
+bool(checkeq(nat(step2),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsestep_2pos0
+bool(checkeq(nat(step2),nat(pos0))) -> 
+bool(false)
+
+%checkFalsestep_2nulli
+bool(checkeq(nat(step2),nat(nulli))) -> 
+bool(false)
+
+%checkFalsestep_2cnulli
+bool(checkeq(nat(step2),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsestep_2nat10
+bool(checkeq(nat(step2),nat(nat10))) -> 
+bool(false)
+
+%checkFalsestep_2pos01
+bool(checkeq(nat(step2),nat(pos01))) -> 
+bool(false)
+
+%checkFalsestep_2nat6
+bool(checkeq(nat(step2),nat(nat6))) -> 
+bool(false)
+
+%checkFalsestep_2nat5
+bool(checkeq(nat(step2),nat(nat5))) -> 
+bool(false)
+
+%checkFalsestep_2nat4
+bool(checkeq(nat(step2),nat(nat4))) -> 
+bool(false)
+
+%checkFalsestep_2nat3
+bool(checkeq(nat(step2),nat(nat3))) -> 
+bool(false)
+
+%checkFalsestep_2nat2
+bool(checkeq(nat(step2),nat(nat2))) -> 
+bool(false)
+
+%checkFalsestep_2nat1
+bool(checkeq(nat(step2),nat(nat1))) -> 
+bool(false)
+
+%checkFalsestep_2nat0
+bool(checkeq(nat(step2),nat(nat0))) -> 
+bool(false)
+
+%checkFalsestep_2pos011
+bool(checkeq(nat(step2),nat(pos011))) -> 
+bool(false)
+
+%checkFalsestep_2step_1
+bool(checkeq(nat(step2),nat(step1))) -> 
+bool(false)
+
+%checkFalsestep_2step_0
+bool(checkeq(nat(step2),nat(step0))) -> 
+bool(false)
+
+%check_step_1
+bool(checkeq(nat(step1),nat(step1))) -> 
+bool(true)
+
+%checkFalsestep_1pnulli
+bool(checkeq(nat(step1),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsestep_1scnulli
+bool(checkeq(nat(step1),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsestep_1pos0
+bool(checkeq(nat(step1),nat(pos0))) -> 
+bool(false)
+
+%checkFalsestep_1nulli
+bool(checkeq(nat(step1),nat(nulli))) -> 
+bool(false)
+
+%checkFalsestep_1cnulli
+bool(checkeq(nat(step1),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsestep_1nat10
+bool(checkeq(nat(step1),nat(nat10))) -> 
+bool(false)
+
+%checkFalsestep_1pos01
+bool(checkeq(nat(step1),nat(pos01))) -> 
+bool(false)
+
+%checkFalsestep_1nat6
+bool(checkeq(nat(step1),nat(nat6))) -> 
+bool(false)
+
+%checkFalsestep_1nat5
+bool(checkeq(nat(step1),nat(nat5))) -> 
+bool(false)
+
+%checkFalsestep_1nat4
+bool(checkeq(nat(step1),nat(nat4))) -> 
+bool(false)
+
+%checkFalsestep_1nat3
+bool(checkeq(nat(step1),nat(nat3))) -> 
+bool(false)
+
+%checkFalsestep_1nat2
+bool(checkeq(nat(step1),nat(nat2))) -> 
+bool(false)
+
+%checkFalsestep_1nat1
+bool(checkeq(nat(step1),nat(nat1))) -> 
+bool(false)
+
+%checkFalsestep_1nat0
+bool(checkeq(nat(step1),nat(nat0))) -> 
+bool(false)
+
+%checkFalsestep_1pos011
+bool(checkeq(nat(step1),nat(pos011))) -> 
+bool(false)
+
+%checkFalsestep_1step_2
+bool(checkeq(nat(step1),nat(step2))) -> 
+bool(false)
+
+%checkFalsestep_1step_0
+bool(checkeq(nat(step1),nat(step0))) -> 
+bool(false)
+
+%check_step_0
+bool(checkeq(nat(step0),nat(step0))) -> 
+bool(true)
+
+%checkFalsestep_0pnulli
+bool(checkeq(nat(step0),nat(pnulli))) -> 
+bool(false)
+
+%checkFalsestep_0scnulli
+bool(checkeq(nat(step0),nat(scnulli))) -> 
+bool(false)
+
+%checkFalsestep_0pos0
+bool(checkeq(nat(step0),nat(pos0))) -> 
+bool(false)
+
+%checkFalsestep_0nulli
+bool(checkeq(nat(step0),nat(nulli))) -> 
+bool(false)
+
+%checkFalsestep_0cnulli
+bool(checkeq(nat(step0),nat(cnulli))) -> 
+bool(false)
+
+%checkFalsestep_0nat10
+bool(checkeq(nat(step0),nat(nat10))) -> 
+bool(false)
+
+%checkFalsestep_0pos01
+bool(checkeq(nat(step0),nat(pos01))) -> 
+bool(false)
+
+%checkFalsestep_0nat6
+bool(checkeq(nat(step0),nat(nat6))) -> 
+bool(false)
+
+%checkFalsestep_0nat5
+bool(checkeq(nat(step0),nat(nat5))) -> 
+bool(false)
+
+%checkFalsestep_0nat4
+bool(checkeq(nat(step0),nat(nat4))) -> 
+bool(false)
+
+%checkFalsestep_0nat3
+bool(checkeq(nat(step0),nat(nat3))) -> 
+bool(false)
+
+%checkFalsestep_0nat2
+bool(checkeq(nat(step0),nat(nat2))) -> 
+bool(false)
+
+%checkFalsestep_0nat1
+bool(checkeq(nat(step0),nat(nat1))) -> 
+bool(false)
+
+%checkFalsestep_0nat0
+bool(checkeq(nat(step0),nat(nat0))) -> 
+bool(false)
+
+%checkFalsestep_0pos011
+bool(checkeq(nat(step0),nat(pos011))) -> 
+bool(false)
+
+%checkFalsestep_0step_2
+bool(checkeq(nat(step0),nat(step2))) -> 
+bool(false)
+
+%checkFalsestep_0step_1
+bool(checkeq(nat(step0),nat(step1))) -> 
+bool(false)
+
+%check_failurelin
+bool(checkeq(failurelin(bool(Vboolc10),message(Vmessagec11),message(Vmessagec12)),failurelin(bool(Vboolc20),message(Vmessagec21),message(Vmessagec22)))) -> 
+bool(and(bool(and(bool(checkeq(bool(Vboolc10),bool(Vboolc20))),bool(and(bool(checkeq(message(Vmessagec11),message(Vmessagec21))),bool(and(bool(checkeq(message(Vmessagec12),message(Vmessagec22))),bool(true)))))))))
+
+%check_state_bob
+bool(checkeq(statebob(agent(Vagentc10),agent(Vagentc11),publickey(Vpublickeyc12),publickey(Vpublickeyc13),nat(Vnatc14),text(Vtextc15),text(Vtextc16),set(Vsetc17),nat(Vnatc18)),statebob(agent(Vagentc20),agent(Vagentc21),publickey(Vpublickeyc22),publickey(Vpublickeyc23),nat(Vnatc24),text(Vtextc25),text(Vtextc26),set(Vsetc27),nat(Vnatc28)))) -> 
+bool(and(bool(and(bool(checkeq(agent(Vagentc10),agent(Vagentc20))),bool(and(bool(checkeq(agent(Vagentc11),agent(Vagentc21))),bool(and(bool(checkeq(publickey(Vpublickeyc12),publickey(Vpublickeyc22))),bool(and(bool(checkeq(publickey(Vpublickeyc13),publickey(Vpublickeyc23))),bool(and(bool(checkeq(nat(Vnatc14),nat(Vnatc24))),bool(and(bool(checkeq(text(Vtextc15),text(Vtextc25))),bool(and(bool(checkeq(text(Vtextc16),text(Vtextc26))),bool(and(bool(checkeq(set(Vsetc17),set(Vsetc27))),bool(and(bool(checkeq(nat(Vnatc18),nat(Vnatc28))),bool(true)))))))))))))))))))))
+
+%super type declaration
+state(X) -> message(X)
+
+bool(X) -> message(X)
+
+agent(X) -> message(X)
+
+protocolid(X) -> message(X)
+
+text(X) -> message(X)
+
+symmetrickey(X) -> message(X)
+
+publickey(X) -> message(X)
+
+hashfunc(X) -> message(X)
+
+nat(X) -> message(X)
+
+pairT(X) -> message(X)
+
+nonce(X) -> message(X)
+
+
+%check_text
+bool(checkeq(text(X),text(Y))) ->
+bool(checkeq(X,Y))
+
+Automaton AInit
+States  qknowledge qi q28 qb qnat10 qa q58 q26 q88 q56 q24 q86 q54 q22 q84 q52 q20 qfact q82 q50 q80 qset78 qset74 q8 qset70 q18 q6 q17 q48 q16 q4 q78 q46 q14 qnet q76 q44 q12 q74 q10 q42 q72 q40 q70 qdummynonce qnat6 qnat4 qnat3 qnat1 qnat0 qset62 q38 q68 q36 q66 q34 qstart q64 q32 q62 q30 q92 q60 q90 qki qkb qka
+Final States  qnet
+Transitions
+start -> qstart
+message(qstart) -> q4
+iknows(q4) -> qfact
+a -> qa
+agent(qa) -> q6
+iknows(q6) -> qfact
+b -> qb
+agent(qb) -> q8
+iknows(q8) -> qfact
+ka -> qka
+publickey(qka) -> q10
+iknows(q10) -> qfact
+kb -> qkb
+publickey(qkb) -> q12
+iknows(q12) -> qfact
+ki -> qki
+publickey(qki) -> q14
+iknows(q14) -> qfact
+publickey(qki) -> q16
+inv(q16) -> q17
+message(q17) -> q18
+iknows(q18) -> qfact
+i -> qi
+agent(qi) -> q20
+iknows(q20) -> qfact
+agent(qa) -> q22
+agent(qb) -> q24
+publickey(qka) -> q26
+publickey(qkb) -> q28
+nat0 -> qnat0
+nat(qnat0) -> q30
+dummynonce -> qdummynonce
+text(qdummynonce) -> q32
+text(qdummynonce) -> q34
+set62 -> qset62
+set(qset62) -> q36
+nat3 -> qnat3
+nat(qnat3) -> q38
+statealice(q22,q24,q26,q28,q30,q32,q34,q36,q38) -> qfact
+agent(qb) -> q40
+agent(qa) -> q42
+publickey(qka) -> q44
+publickey(qkb) -> q46
+nat1 -> qnat1
+nat(qnat1) -> q48
+text(qdummynonce) -> q50
+text(qdummynonce) -> q52
+set70 -> qset70
+set(qset70) -> q54
+nat4 -> qnat4
+nat(qnat4) -> q56
+statebob(q40,q42,q44,q46,q48,q50,q52,q54,q56) -> qfact
+agent(qa) -> q58
+agent(qi) -> q60
+publickey(qka) -> q62
+publickey(qki) -> q64
+nat(qnat0) -> q66
+text(qdummynonce) -> q68
+text(qdummynonce) -> q70
+set74 -> qset74
+set(qset74) -> q72
+nat6 -> qnat6
+nat(qnat6) -> q74
+statealice(q58,q60,q62,q64,q66,q68,q70,q72,q74) -> qfact
+agent(qb) -> q76
+agent(qi) -> q78
+publickey(qki) -> q80
+publickey(qkb) -> q82
+nat(qnat1) -> q84
+text(qdummynonce) -> q86
+text(qdummynonce) -> q88
+set78 -> qset78
+set(qset78) -> q90
+nat10 -> qnat10
+nat(qnat10) -> q92
+statebob(q76,q78,q80,q82,q84,q86,q88,q90,q92) -> qfact
+knowledge -> qknowledge
+u(qfact,qfact) -> qnet
+
+
+
+Patterns
+%secrecy_of_X
+u(message(failure(bool(true),message(X))),U)
+
+Equations E
+Rules
+
+%anascryptSymOnlylintoLin
+anascryptSymOnlylin(_,_,_,_) = 
+lin
+
+%step2lintoLin
+step2lin(_,_,_,_,_,_,_,_,_,_,_,_,_) = 
+lin
+
+%6
+iknows(message(X)) = 
+iknows(message(Y))
+
+%5
+pairT(pair(message(X),nat(PID))) = 
+nat(PID)
+
+%anacryptlintoLin
+anacryptlin(_,_,_,_) = 
+lin
+
+%4
+pairT(pair(message(X),pairT(P1))) = 
+pairT(P1)
+
+%step1lintoLin
+step1lin(_,_,_,_,_,_,_,_,_,_,_,_,_,_) = 
+lin
+
+%3
+message(scrypt(message(X),message(Y),nat(CID))) = 
+nat(CID)
+
+%step3lintoLin
+step3lin(_,_,_,_,_,_,_,_,_,_,_) = 
+lin
+
+%2
+message(crypt(message(X),message(Y),nat(CID))) = 
+nat(CID)
+
+%1
+pairT(pair(message(W),pairT(pair(message(X),pairT(pair(message(Y),message(Z))))))) = 
+pairT(pair(message(X),pairT(pair(message(Y),message(Z)))))
+
+%0
+message(l(message(X),message(l(message(Y),message(Z))))) = 
+message(l(message(Y),message(l(message(X),message(Z)))))
+
+%failurelintoLin
+failurelin(_,_,_) = 
+lin
+
+%super type equation
+state(X) = message(X)
+
+bool(X) = message(X)
+
+agent(X) = message(X)
+
+protocolid(X) = message(X)
+
+text(X) = message(X)
+
+symmetrickey(X) = message(X)
+
+publickey(X) = message(X)
+
+hashfunc(X) = message(X)
+
+nat(X) = message(X)
+
+pairT(X) = message(X)
+
+nonce(X) = message(X)
+
+
+message(crypt(X,Y,CID)) = crypt(X,Y,CID) 
+message(scrypt(X,Y,CID)) = scrypt(X,Y,CID) 
+message(u(X,Y)) = u(X,Y) 
+nat(pid(X,Y,Z)) = pid(X,Y,Z) 
+pairT(pair(X,Y)) = pair(X,Y) 
+union(u(X,Y)) = u(X,Y) 
+u(X,Y) = Y 
+state(checki(message(Z))) = message(Z)
+checkeq(X,Y) = checkeq(Y,X)
+

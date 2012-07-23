@@ -15,6 +15,8 @@ public class Type extends Symbole implements VoidType{
 	 * primitive define if the type is a primitive type (ie: nat, agent)
 	 */
 	private Boolean primitive;
+	
+	private Boolean voidType = false;
 	/**
 	 * Constructor. Primitive is set to false
 	 * @param id the String id of the type
@@ -33,7 +35,10 @@ public class Type extends Symbole implements VoidType{
 		return id.replaceAll("_", "")+"("+s+")";
 	}
 	public String print(String s) {
-		return id.replaceAll("_", "")+"("+s+")";
+		if(isVoidType())
+			return s;
+		else
+			return id.replaceAll("_", "")+"("+s+")";
 	}
 
 	@Override
@@ -50,7 +55,7 @@ public class Type extends Symbole implements VoidType{
 	 * Herited from Symbole, return null because Type are untyped.
 	 */
 	public Type getType() {
-		return null;
+		return new Untyped("imatype");
 	}
 	
 	/*@Override
@@ -82,6 +87,9 @@ public class Type extends Symbole implements VoidType{
 	}*/
 	@Override
 	public Boolean isVoidType() {
-		return false;
+		return voidType;
+	}
+	public void setVoidType(Boolean b){
+		voidType = b;
 	}
 }

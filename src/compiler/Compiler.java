@@ -6,10 +6,12 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 
 public class Compiler {
+	private static int linearTRS;
 	private Hashtable<String,Var> varsTable;
 	private Hashtable<String,Symbole> symbolesTable;
 	private Hashtable<String,Type> typesTable;
 	private LinkedList<Rule> rulesTable;
+	private Automata automata;
 	private Hashtable<String,Pattern> patternsTable;
 	
 	private String superType;
@@ -19,14 +21,20 @@ public class Compiler {
 	private int flag=0;
 	
 	private Hashtable<String,Equation> equTable;
+	private Boolean checkFalse;
 	
 	public Compiler(){
+		checkFalse = false;
 		varsTable = new Hashtable<String, Var>();
 		symbolesTable = new Hashtable<String, Symbole>();
 		typesTable = new Hashtable<String, Type>();
 		rulesTable = new LinkedList<Rule>();
 		patternsTable = new Hashtable<String, Pattern>();
 		equTable = new Hashtable<String, Equation>();
+		
+		linearTRS = 0;
+		
+		automata = new Automata();
 		
 		superType = "%super type declaration\n";
 		superTypeEq = "%super type equation\n";
@@ -80,6 +88,10 @@ public class Compiler {
 		else
 			equTable.put(equation.getId(), equation);
 	}
+	
+	public void addTransition(Term t){
+		automata.addTerm(t);
+	}
 
 	/**********************************************************
 	 * 					GETTERS AND SETTERS
@@ -126,7 +138,13 @@ public class Compiler {
 	}
 	
 	public void setInit(LinkedList<Term> list){
-		init=list;
+		//init=list;
+		for(Term t:list){
+			t.correctPair();
+			t.tagPair("nulli", "", "",this);
+			t.tagCrypt("nulli", "", "",this);
+			addTransition(t);
+		}
 	}
 	
 	public LinkedList<Term> getInit(){
@@ -166,6 +184,10 @@ public class Compiler {
 	
 	
 	public void doOutput(PrintWriter out){
+		typesTable.get("message").setVoidType(true);
+		typesTable.get("pairT").setVoidType(true);
+	//	((Type)symbolesTable.get("message")).setVoidType(b)
+		automata.init(this);
 		/*Enumeration<Rule> re = rulesTable.element();
 		Rule r;
 		while(re.hasMoreElements()){
@@ -178,11 +200,13 @@ public class Compiler {
 		hashS.putAll(symbolesTable);
 		
 		Enumeration<Symbole> e = hashS.elements();
-		while(e.hasMoreElements()){
-			Symbole sym = e.nextElement();
-			sym.check(this);
-			sym.checkFalse(this);
-		}
+		if(linearTRS==0||linearTRS==2)
+			while(e.hasMoreElements()){
+				Symbole sym = e.nextElement();
+				sym.check(this);
+				if(checkFalse)
+					sym.checkFalse(this);
+			}
 		
 		e = symbolesTable.elements();
 		Symbole s;
@@ -219,7 +243,8 @@ public class Compiler {
 		out.println("%check_text\n"+
 				"bool(checkeq(text(X),text(Y))) ->\n"+
 				"bool(checkeq(X,Y))");
-		/* INIT */
+		/* INIT *//*
+		System.out.println(init);
 		out.println("Set Initial");
 
 		for(Term initA:init){
@@ -227,7 +252,8 @@ public class Compiler {
 			initA.tagPair("nulli", "", "",this);
 			initA.tagCrypt("nulli", "", "",this);
 		}	
-		out.println(Term.union(init, symbolesTable.get("u")).print());
+		out.println(Term.union(init, symbolesTable.get("u")).print());*/
+		out.println("\n"+automata.print());
 		
 		/* Patterns */
 		out.println("\n\nPatterns");
@@ -248,7 +274,7 @@ public class Compiler {
 		}
 		out.println(superTypeEq.replaceAll("_", ""));
 		
-		out.println("message(crypt(X,Y,CID)) = crypt(X,Y,CID) \n"+
+		out.println(/*"message(crypt(X,Y,CID)) = crypt(X,Y,CID) \n"+
 		"message(scrypt(X,Y,CID)) = scrypt(X,Y,CID) \n"+
 		//"fact(iknows(X)) = iknows(X) \n"+
 		//"fact(X) = fact(Y) \n"+
@@ -256,9 +282,30 @@ public class Compiler {
 		"nat(pid(X,Y,Z)) = pid(X,Y,Z) \n"+
 		"pairT(pair(X,Y)) = pair(X,Y) \n"+
 		"union(u(X,Y)) = u(X,Y) \n"+
-		"u(X,Y) = Y \n"+
-		"state(checki(message(Z))) = message(Z)\n"+
-		"checkeq(X,Y) = checkeq(Y,X)\n");
+		"u(X,Y) = Y \n"+*/
+		"state(checki(Z)) = Z\n"+
+		"checkeq(X,Y) = checkeq(Y,X)\n"+
+		"[u(X,Y)] => [X=timNetwork Y=timNetwork]\n"
+		);/*
+		e = hashS.elements();
+		while(e.hasMoreElements()){
+			Symbole sym = e.nextElement();
+			if(sym.getType().getClass().equals(Fact.class)&&sym.getClass().equals(Ops.class)){
+				out.println(sym.printVariable(this)+" = timNetwork");
+			}
+		}*/
 		out.close();
+	}
+
+	public void setLinearTRS(int i) {
+		linearTRS = i;
+	}
+	public int getLinearTRS(){
+		return linearTRS;
+	}
+
+	public void setCheckFalse(boolean b) {
+		checkFalse = b;
+		
 	}
 }

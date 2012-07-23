@@ -25,7 +25,7 @@ public class Cons extends Symbole {
 
 	@Override
 	public String print(String s) {
-		return type.print(id.replaceAll("_", ""));
+		return id.replaceAll("_", "");
 	}
 	@Override
 	public String printType(String s) {

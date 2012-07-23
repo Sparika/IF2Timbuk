@@ -15,13 +15,30 @@ class Main {
 		String prelude, protocole;
 		if (args.length >= 1) {
 			protocole = args[0];
+
+			String outString = protocole.replaceAll(".if", ".tim");
 			
-			//Compiler compiler = new Compiler();
-			
-			CharStream input = new ANTLRFileStream("prelude.if2tim");
+			CharStream input = new ANTLRFileStream("Protocols/prelude.if2tim");
 			ifgrammarLexer lexer = new ifgrammarLexer(input);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			ifgrammarParser parser = new ifgrammarParser(tokens);
+			
+			if (args.length>=2) {
+				for(int i=1; i<args.length; i++){
+					if(args[i].startsWith("--")){
+						if(args[i].equals("--linear")){
+							parser.getCompiler().setLinearTRS(Integer.parseInt(args[i+1]));
+							i++;
+						}
+						else if(args[i].equals("--checkFalse")){
+							parser.getCompiler().setCheckFalse(true);
+						}
+					}
+					else{
+						outString = args[i];
+					}
+				}
+			}
 			
 			parser.tim_prelude();
 			
@@ -31,14 +48,7 @@ class Main {
 			parser.setTokenStream(tokens);// = new ifgrammarParser(tokens);
 			
 			parser.if_File();
-			PrintWriter out;
-			if (args.length>=2) {
-				out = new PrintWriter(new BufferedWriter(new FileWriter(args[1])));
-			}
-			else{
-				out = new PrintWriter(new BufferedWriter(new FileWriter(protocole.replaceAll(".if", ".tim"))));
-				    
-			}
+			PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outString)));
 			parser.getCompiler().doOutput(out);
 		}
     }
